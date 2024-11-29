@@ -1,0 +1,420 @@
+{
+  "Training": [
+    {
+      "id": "1",
+      "title": "Ball Control",
+      "image": "https://placehold.co/390x200",
+      "content": "Sed ut perspiciatis under the omnis iste natus error.",
+      "courses": [
+        {
+          "id": "1",
+          "title": "Open Control 1",
+          "image": "https://placehold.co/390x200",
+          "content": "Sed ut perspiciatis under the omnis iste natus error.",
+          "desc": "lorem ispum dolor sit amet",
+          "lock": true,
+          "progress": 0,
+          "videos": [
+            {
+              "id": "1",
+              "title": "Inside Foot right 45 degress",
+              "video": "https://placehold.co/390x200",
+              "content": "Ball Control",
+              "desc": "lorem ispum dolor sit amet"
+            },
+            {
+                "id": "2",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                "id": "2",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              }
+          ]
+        },
+        {
+            "id": "2",
+            "title": "Turn Control 1",
+            "image": "https://placehold.co/390x200",
+            "content": "Sed ut perspiciatis under the omnis iste natus error.",
+            "desc": "lorem ispum dolor sit amet",
+            "lock": false,
+            "progress": 20,
+            "videos": [
+              {
+                "id": "1",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                }
+            ]
+          },
+          {
+            "id": "3",
+            "title": "Dropkick Control 1",
+            "image": "https://placehold.co/390x200",
+            "content": "Sed ut perspiciatis under the omnis iste natus error.",
+            "desc": "lorem ispum dolor sit amet",
+            "lock": true,
+            "progress": 50,
+            "videos": [
+              {
+                "id": "1",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                }
+            ]
+          }
+      ]
+    },
+    {
+        "id": "2",
+        "title": "Foot Work",
+        "image": "https://placehold.co/390x200",
+        "content": "Foot Work",
+        "courses": [
+          {
+            "id": "1",
+            "title": "Open Control 2",
+            "image": "https://placehold.co/390x200",
+            "content": "Sed ut perspiciatis under the omnis iste natus error.",
+            "desc": "lorem ispum dolor sit amet",
+            "lock": true,
+            "progress": 0,
+            "videos": [
+              {
+                "id": "1",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                }
+            ]
+          },
+          {
+              "id": "2",
+              "title": "Turn Control 2",
+              "image": "https://placehold.co/390x200",
+              "content": "Turn Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": false,
+              "progress": 20,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            },
+            {
+              "id": "3",
+              "title": "Dribble Control 2 ",
+              "image": "https://placehold.co/390x200",
+              "content": "Dribble Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": true,
+              "progress": 50,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Mentality",
+        "image": "https://placehold.co/390x200",
+        "content": "Mentality",
+        "courses": [
+          {
+            "id": "1",
+            "title": "Open Control 3",
+            "image": "https://placehold.co/390x200",
+            "content": "Ball Control",
+            "desc": "lorem ispum dolor sit amet",
+            "lock": true,
+            "progress": 0,
+            "videos": [
+              {
+                "id": "1",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                }
+            ]
+          },
+          {
+              "id": "2",
+              "title": "Turn Control 3",
+              "image": "https://placehold.co/390x200",
+              "content": "Turn Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": false,
+              "progress": 20,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            },
+            {
+              "id": "3",
+              "title": "Dribble Control 3",
+              "image": "https://placehold.co/390x200",
+              "content": "Dribble Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": true,
+              "progress": 50,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Mentality",
+        "image": "https://placehold.co/390x200",
+        "content": "Mentality",
+        "courses": [
+          {
+            "id": "1",
+            "title": "Open Control 4",
+            "image": "https://placehold.co/390x200",
+            "content": "Ball Control",
+            "desc": "lorem ispum dolor sit amet",
+            "lock": true,
+            "progress": 0,
+            "videos": [
+              {
+                "id": "1",
+                "title": "Inside Foot right 45 degress",
+                "video": "https://placehold.co/390x200",
+                "content": "Ball Control",
+                "desc": "lorem ispum dolor sit amet"
+              },
+              {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                  "id": "2",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                }
+            ]
+          },
+          {
+              "id": "2",
+              "title": "Turn Control 4",
+              "image": "https://placehold.co/390x200",
+              "content": "Turn Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": false,
+              "progress": 20,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            },
+            {
+              "id": "3",
+              "title": "Dribble Control 4",
+              "image": "https://placehold.co/390x200",
+              "content": "Dribble Control",
+              "desc": "lorem ispum dolor sit amet",
+              "lock": true,
+              "progress": 50,
+              "videos": [
+                {
+                  "id": "1",
+                  "title": "Inside Foot right 45 degress",
+                  "video": "https://placehold.co/390x200",
+                  "content": "Ball Control",
+                  "desc": "lorem ispum dolor sit amet"
+                },
+                {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  },
+                  {
+                    "id": "2",
+                    "title": "Inside Foot right 45 degress",
+                    "video": "https://placehold.co/390x200",
+                    "content": "Ball Control",
+                    "desc": "lorem ispum dolor sit amet"
+                  }
+              ]
+            }
+        ]
+    }
+  ]
+}

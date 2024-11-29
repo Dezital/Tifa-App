@@ -1,59 +1,105 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+// AppLayout.tsx
+import { Redirect, Tabs } from "expo-router"
+import React, { useEffect } from 'react';
+import { setStatusBarStyle } from 'expo-status-bar';
+import { useSession } from '../../ctx';
+import LoadingScreen from '@/components/LoadingScreen';
+import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import {View} from 'react-native';
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+export default function AppLayout() {
+  const { session, isLoading } = useSession();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  // Set status bar style on mount
+  useEffect(() => {
+    setStatusBarStyle('light');
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  if (!session) {
+    return <Redirect href="/sign-in" />;
+  }
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+    <>
+    <View style={{ backgroundColor: 'rgba(44, 44, 44, 1)', flex: 1}}>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: 'rgba(47, 120, 245, 1)',
+          tabBarStyle: {
+            //borderTopLeftRadius: 50,
+            //borderTopRightRadius: 50,
+            backgroundColor: 'rgba(30, 32, 33, 1)',
+            borderColor: 'rgba(30, 32, 33, 1)', 
+            paddingTop: 12,
+            paddingBottom: 13,
+            paddingHorizontal: 15,
+            height: 70,
+          },
+          headerShown: false,
         }}
-      />
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Home',
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'home' : 'home'} color={color} focused={focused} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="homework"
+          options={{
+            title: 'HomeWork',
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'tennisball' : 'tennisball'} color={color} focused={focused} />
+            ),
+          }}
+        />
       <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-    </Tabs>
+          name="training"
+          options={{
+            title: 'Training',
+             tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'football' : 'football'} color={color} focused={focused} />
+            ),
+          }}
+        />           
+        <Tabs.Screen
+          name="magezine"
+          options={{
+            title: 'Magezine',
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
+        <Tabs.Screen
+          name="homeworklist/[id]"
+          options={{
+            tabBarItemStyle: { display: 'none' },
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
+        <Tabs.Screen
+          name="traininglist/[id]"
+          options={{
+            tabBarItemStyle: { display: 'none' },
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
+      </Tabs>
+      </View>
+    </>
   );
 }
+
