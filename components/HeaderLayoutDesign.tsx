@@ -9,6 +9,7 @@ import HeaderOverlayBox from "./UI/Training/HeaderOverlayBox";
 import ProgramView from "./UI/Training/ProgramView";
 import NameView from "./UI/HomeWork/NameView";
 import VideoView from "./UI/HomeWork/VideoView";
+import HomeContent from "./UI/Home/HomeContent";
 
 interface DataProps {
   id: string;
@@ -32,33 +33,19 @@ interface DataProps {
   }>;
 }
 
-
-interface CourseProps {
-  id: string;
-  title?: string;
-  content?: string;
-  desc: string;
-  image?: string;
-  lock: boolean;
-  progress: number;
-  videos: Array<VideoProps>;
-}
-
-interface VideoProps {
-  id: string;
+interface dataIndexProps {
+  id: number;
   title: string;
-  video: string;
-  content: string;
-  desc: string;
 }
 
 interface MainProps {
   routeName: string;
   routeTitle: string;
   data?: DataProps[];
+  dataIndex?: dataIndexProps[];
 }
 
-const HeaderLayoutDesign = ({ routeName, routeTitle, data }: MainProps) => {
+const HeaderLayoutDesign = ({ routeName, routeTitle, data, dataIndex }: MainProps) => {
   const [islistView, setIslistView] = useState(false);
   const [loaded] = useFonts({
     Vermin: require("../assets/fonts/VerminVibesSlant.ttf"),
@@ -81,32 +68,23 @@ const HeaderLayoutDesign = ({ routeName, routeTitle, data }: MainProps) => {
           </View>
           <NotificationComponent />
         </View>
-        {routeName === "training" ? (
-          <HeaderOverlayBox
-            data={data}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-          />
-        ) : (
-          <CardLayout />
-        )}
+        {routeName === "training"  && ( <HeaderOverlayBox data={data} activeIndex={activeIndex} setActiveIndex={setActiveIndex} routeName="training"/>)}
+        {routeName === "homework" && <CardLayout routeName="homework" />}
+        {routeName === "index" && <HeaderOverlayBox dataInd={dataIndex} activeIndex={activeIndex} setActiveIndex={setActiveIndex} routeName="index" /> }
+
       </View>
-      {routeName !== "homework" ?
-      <NameCount text={data?.[activeIndex]?.title} count={`${data?.[activeIndex]?.courses?.length} Modules` || "0 Modules"} />
-      :
-      <NameView text={"Homework"} islistView={islistView} setlistView={setIslistView} />
-      }
+      {routeName === "training" && <NameCount text={data?.[activeIndex]?.title} count={`${data?.[activeIndex]?.courses?.length} Modules` || "0 Modules"} />}
+      {routeName === "homework" && <NameView text={"Homework"} islistView={islistView} setlistView={setIslistView} />  }
       {/* For Training tab */ }
       {routeName === "training" && <ProgramView courses={activeCourses} />}
       {/* For homework tab */ }
       {routeName === "homework" && <VideoView isListView={islistView} />}
-
+      {routeName === 'index' && <HomeContent activeIndex={activeIndex} routeName="index" />}
+      
       
     </>
   );
 };
-
-
 
 const TextheaderStyles = StyleSheet.create({
   headerText: {

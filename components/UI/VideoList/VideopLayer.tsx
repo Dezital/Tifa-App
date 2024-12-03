@@ -1,13 +1,16 @@
 
 
 import React, { useRef, useState } from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, Dimensions } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
 
 interface VideoPlayerProps {
   videoUrl: string;
   onBackPress: () => void; // Callback to handle back navigation
 }
+
+const screenHeight = Dimensions.get('window').height;
+const screenwidth = Dimensions.get('window').width;
 
 const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
   const [isLoading, setIsLoading] = useState(true); // Loader state
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%', // Full screen width
-    height: 300, // Set height; adjust to your design
+    minHeight: 300, // Set height; adjust to your design
     borderRadius: 10,
   },
   loader: {

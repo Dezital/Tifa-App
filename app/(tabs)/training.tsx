@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    marginTop: 24,
+    marginTop: 10,
   },
   scrollContainer: {
     width: "100%", // Ensures full-width

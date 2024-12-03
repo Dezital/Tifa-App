@@ -5,6 +5,7 @@ import Checkbox from 'expo-checkbox';
 interface Props {
   isChecked: boolean;
   onValueChange: (value: boolean) => void;
+  setIsChecked: (value: boolean) => void;
 }
 
 const CheckBoxComponent = ({ isChecked, onValueChange }: Props) => {

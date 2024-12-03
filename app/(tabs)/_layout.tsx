@@ -1,7 +1,7 @@
 // AppLayout.tsx
 import { Redirect, Tabs } from "expo-router"
 import React, { useEffect } from 'react';
-import { setStatusBarStyle } from 'expo-status-bar';
+import { setStatusBarStyle, StatusBar } from 'expo-status-bar';
 import { useSession } from '../../ctx';
 import LoadingScreen from '@/components/LoadingScreen';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
@@ -26,6 +26,7 @@ export default function AppLayout() {
 
   return (
     <>
+    <StatusBar style="light" />
     <View style={{ backgroundColor: 'rgba(44, 44, 44, 1)', flex: 1}}>
       <Tabs
         screenOptions={{

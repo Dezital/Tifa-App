@@ -34,7 +34,7 @@ const TrainingList  = () => {
         <HeaderVariant onBackPress={onBackPress} />
     </View>
     {selectedVideo ? (
-        <VideoPlayer videoUrl={'https://res.cloudinary.com/dofjskceg/video/upload/f_auto,q_auto/v1732766993/1_to_1_Football_Practice_Ball_Control_Passing_and_Movement_xpg9ma.m3u8'} onBackPress={onBackPress} />
+        <VideoPlayer videoUrl={'https://res.cloudinary.com/dofjskceg/video/upload/v1732766993/1_to_1_Football_Practice_Ball_Control_Passing_and_Movement_xpg9ma.mp4'} onBackPress={onBackPress} />
         
       ) : (
         <>
