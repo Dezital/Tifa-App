@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CardLayout from '../Header/CardLayout';
 import TifaIconBox from './TifaIconBox';
+import SuperHeroSlider from './SuperHeros';
+
 interface HomeContentProps {
   activeIndex: number;
   routeName: string
@@ -31,7 +33,7 @@ const HomeContent = ({ activeIndex, routeName }: HomeContentProps) => {
 
 const Stats = () => {
   return (
-    <View style={styles.tifaSportsContainer} >
+    <View style={[styles.tifaSportsContainer, {padding: 20}]} >
         <CardLayout routeName='index' />
       <Text style={styles.tifatext}>TIFA Sports Institute is all about the individual talent development of every player as we focus on functional technique. Apart from the technical aspects we also value motivation, self-believe, and mentality. All these aspects are incorporated into our training philosophy and conversations we have with our players. All this makes us prides the best talent developing institute of The Netherlands.</Text>
       <Text style={styles.tifaStatsHeading}>Tifa Stats</Text>
@@ -51,14 +53,14 @@ const Stats = () => {
 const Superheros = () => {
   return (
     <View  style={styles.tifaSportsContainer} >
-      <Text>Superheros</Text>
+      <SuperHeroSlider />
     </View>
   );
 };
 
 const Games = () => {
   return (
-    <View>
+    <View style={styles.sliderContainer}>
       <Text>Games</Text>
     </View>
   );
@@ -66,7 +68,6 @@ const Games = () => {
 
 const styles = StyleSheet.create({
     tifaSportsContainer: {
-      padding: 20,
       marginTop: 30,
     },
     tifatext: {
@@ -88,6 +89,11 @@ const styles = StyleSheet.create({
       marginTop: 20,
       gap: 18,
       flexWrap: 'wrap'
+    },
+    sliderContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
     }
 });
 

@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 import LoadingScreen from '@/components/LoadingScreen';
 import { setStatusBarStyle } from "expo-status-bar";
-
 import { Slot } from "expo-router"
 import { SessionProvider } from '../ctx';
 
