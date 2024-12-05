@@ -2,14 +2,17 @@ import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import {HeaderLayoutDesign} from "../../components/HeaderLayoutDesign";
-//const placeholder = require("../assets/images/Tifa-loading-Screen.jpg"); //use this as placeholder for all images
+import trainingData from "../../components/Training.json";
 
-export default function index() {
+
+
+export default function profile() {
+  const { Training } = trainingData;
   return (
     <SafeAreaProvider style={{backgroundColor: "rgba(0, 54, 171, 1)"}}>
       <SafeAreaView style={styles.container}>
       <ScrollView style={{ width: "100%" }} contentContainerStyle={styles.scrollContainer}>
-      <HeaderLayoutDesign routeName="homework" routeTitle="HOMEWORK"  />
+      <HeaderLayoutDesign routeName="profile" routeTitle="PROFILE" data={Training} />
     </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>

@@ -18,7 +18,7 @@ const Homeworklist  = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.containedView}>
-        <HeaderVariant onBackPress={onBackPress} />
+        <HeaderVariant onBackPress={onBackPress} title={"Open Control"} />
     </View>
     <NameCount headerVariant={true} />
     <View style={{ marginTop: 10, paddingHorizontal: 20 }}>

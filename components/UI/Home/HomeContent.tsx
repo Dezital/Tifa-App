@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import CardLayout from '../Header/CardLayout';
 import TifaIconBox from './TifaIconBox';
 import SuperHeroSlider from './SuperHeros';
+import GameView from './Games/GameView';
 
 interface HomeContentProps {
   activeIndex: number;
@@ -60,8 +61,8 @@ const Superheros = () => {
 
 const Games = () => {
   return (
-    <View style={styles.sliderContainer}>
-      <Text>Games</Text>
+    <View style={[styles.tifaSportsContainer, {padding: 20}]}>
+      <GameView />
     </View>
   );
 };

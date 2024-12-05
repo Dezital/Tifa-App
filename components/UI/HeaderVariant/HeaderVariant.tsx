@@ -1,24 +1,30 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import NotificationComponent from '../Header/NotificationComponent'
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import NotificationComponent from '../Header/NotificationComponent';
+import BackPress from '../BackPress';
+
+
 interface Props {
-  onBackPress: () => void
+  onBackPress: () => void;
+  title: string;
 }
-const HeaderVariant = ({onBackPress}: Props) => {
-  
+
+const HeaderVariant = ({ onBackPress, title }: Props) => {
+  // Extract the first word from the title
+  const shortTitle = title.split(' ')[0];
+
   return (
     <View style={styles.headerFlex}>
-      <View style={[NotificationComponentStyles.notificationContainer]}>
-          <Ionicons onPress={onBackPress} name='chevron-back-outline' size={24} color={'rgba(255, 255, 255, 1)'} />
-          </View>
-          <View >
-            <Text style={TextheaderStyles.headerText}>{" Open Control"}</Text>
-          </View>
-          <NotificationComponent headerVariant={true} />
-        </View>
-  )
-}
+     <BackPress onBackPress={onBackPress} />
+      <View>
+        <Text style={TextheaderStyles.headerText}>{shortTitle}</Text>
+      </View>
+      <NotificationComponent headerVariant={true} />
+    </View>
+  );
+};
+
+
 
 export default HeaderVariant
 const styles = StyleSheet.create({
@@ -49,6 +55,7 @@ const TextheaderStyles = StyleSheet.create({
     marginTop: 17,
     letterSpacing: -0.17,
     textAlign: "center",
+    minWidth:"50%"
   },
   typographyHeadertext: {
     color: "rgba(255, 255, 255, 0.2)",

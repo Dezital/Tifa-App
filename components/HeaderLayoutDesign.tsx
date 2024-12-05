@@ -10,6 +10,8 @@ import ProgramView from "./UI/Training/ProgramView";
 import NameView from "./UI/HomeWork/NameView";
 import VideoView from "./UI/HomeWork/VideoView";
 import HomeContent from "./UI/Home/HomeContent";
+import BackPress from "./UI/BackPress";
+import { useRouter } from "expo-router";
 
 interface DataProps {
   id: string;
@@ -46,11 +48,15 @@ interface MainProps {
 }
 
 const HeaderLayoutDesign = ({ routeName, routeTitle, data, dataIndex }: MainProps) => {
+  const router = useRouter();
   const [islistView, setIslistView] = useState(false);
   const [loaded] = useFonts({
     Vermin: require("../assets/fonts/VerminVibesSlant.ttf"),
   });
-
+  
+  const onBackPress = () => {
+    router.back();
+  }
   // State to manage active selection
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -61,7 +67,8 @@ const HeaderLayoutDesign = ({ routeName, routeTitle, data, dataIndex }: MainProp
     <>
       <View style={styles.headerContainer}>
         <View style={styles.headerFlex}>
-          <ProfileIcon />
+          {routeName !== "profile" && <ProfileIcon />}
+          {routeName === "profile" && <BackPress onBackPress={onBackPress} />}
           <View>
             <Text style={TextheaderStyles.headerText}>{routeTitle}</Text>
             <Text style={TextheaderStyles.typographyHeadertext}>T</Text>
@@ -79,9 +86,7 @@ const HeaderLayoutDesign = ({ routeName, routeTitle, data, dataIndex }: MainProp
       {routeName === "training" && <ProgramView courses={activeCourses} />}
       {/* For homework tab */ }
       {routeName === "homework" && <VideoView isListView={islistView} />}
-      {routeName === 'index' && <HomeContent activeIndex={activeIndex} routeName="index" />}
-      
-      
+      {routeName === 'index' && <HomeContent activeIndex={activeIndex} routeName="index"  />}
     </>
   );
 };

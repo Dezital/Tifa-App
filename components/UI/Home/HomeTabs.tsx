@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
 
 
 interface Props {
-  title: string;
+  title: string | undefined;
   active: boolean;
   onPress: () => void;
 }
@@ -13,7 +13,7 @@ const HomeTabs = ({title,  active, onPress}: Props) => {
   const calculatedWidth = screenWidth * 0.35;
   return (
       <TouchableOpacity onPress={onPress} style={[styles.tabbutton, { backgroundColor, width: calculatedWidth }]} >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{title || "title"}</Text>
       </TouchableOpacity>
   )
 }

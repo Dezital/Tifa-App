@@ -58,7 +58,7 @@ const HeaderOverlayBox = ({ data, activeIndex, setActiveIndex, routeName, dataIn
         ))}
         {routeName === "index" && 
          dataInd?.map((item, index) => (
-          <HomeTabs title={item.title} key={item.id} active={index === activeIndex} onPress={() => setActiveIndex(index)}/>
+          <HomeTabs title={item.title} key={item.id} active={index === activeIndex} onPress={() => setActiveIndex(index)} />
         ))}
       </ScrollView>
     </View>

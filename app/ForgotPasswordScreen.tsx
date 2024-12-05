@@ -18,8 +18,6 @@ const screenHeight = Dimensions.get('window').height;
 const ForgotPasswordScreen = () => {
   const [email, setEmail] = useState("");
   const router = useRouter(); // Hook to navigate between screens
-  
-
 
   const handleResetPassword = async () => {
     if (!email.trim()) {

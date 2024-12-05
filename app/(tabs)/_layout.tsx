@@ -98,6 +98,24 @@ export default function AppLayout() {
             ),
           }}
         />  
+        <Tabs.Screen
+          name="superheros/[id]"
+          options={{
+            tabBarItemStyle: { display: 'none' },
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
+        <Tabs.Screen
+          name="profile"
+          options={{
+            tabBarItemStyle: { display: 'none' },
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
       </Tabs>
       </View>
     </>

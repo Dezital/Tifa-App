@@ -31,7 +31,7 @@ const TrainingList  = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.containedView}>
-        <HeaderVariant onBackPress={onBackPress} />
+        <HeaderVariant onBackPress={onBackPress} title={"Open Control"} />
     </View>
     {selectedVideo ? (
         <VideoPlayer videoUrl={'https://res.cloudinary.com/dofjskceg/video/upload/v1732766993/1_to_1_Football_Practice_Ball_Control_Passing_and_Movement_xpg9ma.mp4'} onBackPress={onBackPress} />
