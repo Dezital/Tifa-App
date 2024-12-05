@@ -45,9 +45,7 @@ const signup = () => {
         showPlayServicesUpdateDialog: true,
       });
       const signInResult = await GoogleSignin.signIn();
-      console.log("signInResult===", signInResult);
       let idToken = signInResult.data?.idToken;
-      console.log("idToken===", idToken);
       if (idToken) {
         // Create a Google credential with the token
        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -69,7 +67,7 @@ const signup = () => {
 
   const handleSignUp = async () => {
     try {
-      if(!email.trim() || !password.trim() || !name.trim() || !surname.trim() || !dob.trim() || !country.trim()) {
+      if(!email.trim() || !password.trim() || !name.trim() || !surname.trim() || !dob.trim() || !country.trim() || !isChecked) {
         alert("Please fill in all fields.");
         return;
       }
@@ -175,7 +173,7 @@ const signup = () => {
               <AuthButton
                 formatBlue="blue"
                 asyncFunctionPass={handleSignUp}
-                Title="LOGIN"
+                Title="SIGN UP"
               />
             </View>
             <View>

@@ -1,10 +1,12 @@
 import React, { useState, memo } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Modal, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import { ProfileMenuItem } from '@/app/(tabs)/profile';
+const languageIcon = require("../../assets/images/language.png");
 interface Props {
   selectedValue: string;
   setSelectedValue: (value: string) => void;
+  isLanguageSwitcher?: boolean;
 }
 
 interface Option {
@@ -12,7 +14,8 @@ interface Option {
   value: string;
 }
 
-const CountryDropDown = ({ selectedValue, setSelectedValue }: Props) => {
+const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher }: Props) => {
+  
   const [modalVisible, setModalVisible] = useState(false);
   const options = [
     { label: 'Netherlands', value: 'Netherlands' },
@@ -26,6 +29,12 @@ const CountryDropDown = ({ selectedValue, setSelectedValue }: Props) => {
     { label: 'Luxembourg', value: 'Luxembourg' },
     { label: 'Other', value: 'Other' },
   ];
+  const LanguageOption =[
+    { label: 'English', value: 'English'},
+    { label: 'Dutch', value: 'Dutch'},
+    { label: 'Spanish', value: 'Spanish'}
+  ]
+  const optionToRender = isLanguageSwitcher ? LanguageOption : options;
   const handleSelect = (value: string) => {
     setSelectedValue(value);
     setModalVisible(false);
@@ -40,19 +49,24 @@ const CountryDropDown = ({ selectedValue, setSelectedValue }: Props) => {
 
   // Ensure keyExtractor is stable and unique
   const keyExtractor = (item: Option) => item.value;
+  const marginver = isLanguageSwitcher ? 0 : 7
+  const widthfull = isLanguageSwitcher ? "auto" : "100%"
 
   return (
-    <View style={styles.container}>
+    <View style={{ marginVertical: marginver, width: widthfull}}>
+      {isLanguageSwitcher ? 
+      <ProfileMenuItem icon={languageIcon} menuTitle="Language" onPress={() => setModalVisible(true)}/> :
       <TouchableOpacity style={styles.dropdown} onPress={() => setModalVisible(true)}>
         <Text style={styles.selectedText}>{selectedValue || 'Select an Option'}</Text>
         <Ionicons name="chevron-down-outline" size={20} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
       </TouchableOpacity>
+      }
 
       <Modal visible={modalVisible} transparent={true} animationType="fade">
         <TouchableOpacity style={styles.overlay} onPress={() => setModalVisible(false)}>
           <View style={styles.modalContainer}>
             <FlatList
-              data={options}
+              data={optionToRender}
               renderItem={({ item }) => <OptionItem item={item} />}  // Render memoized items
               keyExtractor={keyExtractor}
               initialNumToRender={20}  // Render only a small number of items initially
@@ -69,10 +83,6 @@ const CountryDropDown = ({ selectedValue, setSelectedValue }: Props) => {
 
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginVertical: 7,
-  },
   dropdown: {
     backgroundColor: '#1E2021',
     borderRadius: 12,

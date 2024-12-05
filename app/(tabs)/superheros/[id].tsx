@@ -7,6 +7,7 @@ import VideoPlayer from '../../../components/UI/VideoList/VideopLayer';
 import { LinearGradient } from 'expo-linear-gradient';
 import { HeroItem } from '../../../components/UI/Home/SuperHeros';
 import { useRouter, useLocalSearchParams } from'expo-router';
+import Divider from '@/components/UI/Divider';
 
 const tabsHeadings = [
   {
@@ -93,7 +94,7 @@ const SuperHeroProfile: React.FC<{ data: HeroItem }> = ({ data }) => {
         <Text style={superHeroProfileStyles.nationalityText}>Nationality </Text>
         <Image style={superHeroProfileStyles.nationalityFlag} source={data.nationalityFlag} />
       </View>
-      <View style={superHeroProfileStyles.divider} />
+     <Divider />
       <View style={superHeroProfileStyles.rowContainer}>
         <Text style={superHeroProfileStyles.teamText}>Team </Text>
         <Text style={superHeroProfileStyles.teamValue}>{data.Team}</Text>
@@ -160,12 +161,6 @@ const superHeroProfileStyles = StyleSheet.create({
   nationalityFlag: {
     width: 28,
     height: 28,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: "rgba(102, 102, 102, 0.5)",
-    width: "100%",
-    marginTop: 10,
   },
   teamText: {
     fontWeight: "400",

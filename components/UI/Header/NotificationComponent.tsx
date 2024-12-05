@@ -36,5 +36,7 @@ const NotificationComponentStyles = StyleSheet.create({
   },
   notificationIcon: {
     width: 19,
+    height: 19,
+    resizeMode: "contain",
   },
 });

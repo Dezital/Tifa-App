@@ -1,4 +1,4 @@
-import { Pressable, Text, StyleSheet, Image } from "react-native";
+import {  Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { router, Href } from "expo-router";
 const googleIcon = require("../../assets/images/devicon_google.png");
@@ -17,33 +17,33 @@ interface AuthButtonProps {
 
 const ReuseButton: React.FC<ReuseButtonProps> = ({ formatBlue, routeLink, Title }) => {
   return (
-    <Pressable
+    <TouchableOpacity
       style={formatBlue === "blue" ? [styles.button, styles.startButton] : [styles.button, styles.loginButton]}
       onPress={() => {
-        router.replace(routeLink as Href<string>);
+        router.replace(routeLink as Href);
       }}
     >
       <Text style={formatBlue === "blue" ?  styles.buttonText : [styles.buttonText, styles.loginText]}>{Title}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
 const AuthButton: React.FC<AuthButtonProps> = ({ formatBlue, asyncFunctionPass, Title }) => {
   return (
-    <Pressable
+    <TouchableOpacity
       style={formatBlue === "blue" ? [styles.button, styles.startButton] : [styles.button, styles.loginButton]}
       onPress={() => {
         asyncFunctionPass();
       }}
     >
       <Text style={formatBlue === "blue" ?  styles.buttonText : [styles.buttonText, styles.loginText]}>{Title}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 
 const AuthProviderButton: React.FC<AuthButtonProps> = ({ formatBlue, asyncFunctionPass, Title }) => {
   return (
-    <Pressable
+    <TouchableOpacity
       style={[styles.button, styles.authButton]}
       onPress={() => {
         asyncFunctionPass();
@@ -62,7 +62,7 @@ const AuthProviderButton: React.FC<AuthButtonProps> = ({ formatBlue, asyncFuncti
   }
 />
       <Text style={[styles.buttonText, styles.loginText]}>{Title}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 
