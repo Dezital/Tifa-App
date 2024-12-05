@@ -7,8 +7,11 @@ const ProfileIcon = ({widthbigger}:{widthbigger?: boolean}) => {
   const widthrange = widthbigger ? 60 : 45
   const heightrange = widthbigger ? 60 : 45
   const router = useRouter();
+  
   const renderProfile = () => {
+    if(!widthbigger){
     router.push({ pathname: '/(tabs)/profile' });
+    }
   }
     return (
       <TouchableOpacity onPress={renderProfile}>

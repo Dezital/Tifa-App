@@ -8,13 +8,24 @@ import { useRouter } from "expo-router";
 interface MainProps {
   routeName: string;
   routeTitle: string;
+  setMenuitem?: React.Dispatch<React.SetStateAction<string>>
+  goBackAllowed?: boolean
+  menuitem?: string
 }
 
-const HeaderLayoutDesign = ({ routeName, routeTitle }: MainProps) => {
+const HeaderLayoutDesign = ({ routeName, routeTitle, setMenuitem, goBackAllowed, menuitem }: MainProps) => {
   const router = useRouter();
   
   const onBackPress = () => {
-    router.back();
+    if(!menuitem && goBackAllowed){
+      router.back();
+    } else if (goBackAllowed && menuitem === "profile"){ {
+      router.back();
+    } 
+  } 
+    else {
+      router.back();
+    }
   }
 
   return (

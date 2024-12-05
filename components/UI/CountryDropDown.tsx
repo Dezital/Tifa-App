@@ -1,7 +1,8 @@
 import React, { useState, memo } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Modal, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { ProfileMenuItem } from '@/app/(tabs)/profile';
+import ProfileMenuItem from './Profile/ProfileMenuItem';
+
 const languageIcon = require("../../assets/images/language.png");
 interface Props {
   selectedValue: string;
