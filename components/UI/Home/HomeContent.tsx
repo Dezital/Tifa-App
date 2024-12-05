@@ -69,7 +69,7 @@ const Games = () => {
 
 const styles = StyleSheet.create({
     tifaSportsContainer: {
-      marginTop: 30,
+      marginTop: 23,
     },
     tifatext: {
         marginTop: 50,

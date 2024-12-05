@@ -1,17 +1,16 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const BackPress = ({onBackPress}:{onBackPress: () => void}) => {
   return (
-    <View style={[NotificationComponentStyles.notificationContainer]}>
+    <TouchableOpacity style={[NotificationComponentStyles.notificationContainer]} onPress={onBackPress}>
         <Ionicons
-          onPress={onBackPress}
           name="chevron-back-outline"
           size={24}
           color={'rgba(255, 255, 255, 1)'}
         />
-      </View>
+      </TouchableOpacity>
   )
 }
 

@@ -52,9 +52,8 @@ export default ProgramView;
 const programViewStyles = StyleSheet.create({
   programViewContainer: {
     flex: 1,
-    paddingTop: 10,
+    paddingTop: 5,
     paddingHorizontal: 25,
-    backgroundColor: "rgba(44, 44, 44, 1)",
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
   },

@@ -1,9 +1,10 @@
-import React from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, ScrollView, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import {HeaderLayoutDesign} from "../../components/HeaderLayoutDesign";
 import IndexData from "../../components/IndexData.json";
-
+import HeaderOverlayBox from "@/components/UI/Training/HeaderOverlayBox";
+import HomeContent from "@/components/UI/Home/HomeContent";
 
 //import trainingData from "../../components/Training.json";
 //const placeholder = require("../assets/images/Tifa-loading-Screen.jpg"); //use this as placeholder for all images
@@ -15,11 +16,17 @@ import IndexData from "../../components/IndexData.json";
 
 function Index() {
   const { Index } = IndexData;
+    // State to manage active selection
+    const [activeIndex, setActiveIndex] = useState(0);
   return (
     <SafeAreaProvider style={{backgroundColor: "rgba(0, 54, 171, 1)"}}>
       <SafeAreaView style={styles.container}>
       <ScrollView style={{ width: "100%" }} contentContainerStyle={styles.scrollContainer}>
-      <HeaderLayoutDesign routeName="index" routeTitle="HOME" dataIndex={Index} /> 
+      <HeaderLayoutDesign routeName="index" routeTitle="HOME"/> 
+      <View style={{marginTop: -65, paddingHorizontal: 20}}>
+      <HeaderOverlayBox dataInd={Index} activeIndex={activeIndex} setActiveIndex={setActiveIndex} routeName="index" />
+      </View>
+      <HomeContent activeIndex={activeIndex} routeName="index"  />
      </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -35,7 +42,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     width: "100%", // Ensures full-width
     backgroundColor: "rgba(21, 23, 24, 1)",
-    
   },
 });
 
