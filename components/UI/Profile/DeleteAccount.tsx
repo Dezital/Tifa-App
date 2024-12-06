@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const DeleteAccount = ({setMenuitem}: {setMenuitem: React.Dispatch<React.SetStateAction<string>>}) => {
+const DeleteAccount = () => {
   return (
     <View>
       <Text>DeleteAccount</Text>

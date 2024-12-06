@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ScrollView, View, Dimensions } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { HeaderLayoutDesign } from "../../components/HeaderLayoutDesign";
 import ProfileContainer from "@/components/UI/Profile/ProfileContainer";
@@ -10,36 +10,41 @@ import Feedback from "@/components/UI/Profile/Feedback";
 import ChangePassword from "@/components/UI/Profile/ChangePassword";
 import DeleteAccount from "@/components/UI/Profile/DeleteAccount";
 
-const Screenheight = Dimensions.get("window").height;
 
 export default function profile() {
   const [menuitem, setMenuitem] = React.useState("profile");
 
   const displayToRender = ({ menuitem} :{menuitem: string}) => {
     switch (menuitem) { 
-      //notifications
-      //subscriptions
-      //feedback
-      //changePassword
-      //deleteAccount
       case "editProfile":
-        return <EditProfile setMenuitem={setMenuitem}   />;
+        return <EditProfile />;
       case "profile":
         return <ProfileContainer setMenuitem={setMenuitem} />;
       case "notifications":
-        return <Notifications setMenuitem={setMenuitem} />;
+        return <Notifications />;
       case "subscriptions":
-        return <Subscriptions setMenuitem={setMenuitem} />;
+        return <Subscriptions />;
       case "feedback":
-        return <Feedback setMenuitem={setMenuitem} />;
+        return <Feedback />;
       case "changePassword":
-        return <ChangePassword setMenuitem={setMenuitem} />;
+        return <ChangePassword  />;
       case "deleteAccount":
-        return <DeleteAccount setMenuitem={setMenuitem} />;
+        return <DeleteAccount/>;
       default:
         return <ProfileContainer setMenuitem={setMenuitem} />;
     }
   };
+  
+  const menuItemTitles: { [key: string]: string } = {
+    profile: "PROFILE",
+    editProfile: "EDIT PROFILE",
+    notifications: "NOTIFICATIONS",
+    subscriptions: "SUBSCRIPTIONS",
+    feedback: "FEEDBACK",
+    changePassword: "PASSWORD",
+    deleteAccount: "ACCOUNT",
+  };
+
   return (
     <SafeAreaProvider style={{ backgroundColor: "rgba(0, 54, 171, 1)" }}>
       <SafeAreaView style={styles.container}>
@@ -47,7 +52,7 @@ export default function profile() {
           style={{ width: "100%" }}
           contentContainerStyle={styles.scrollContainer}
         >
-          <HeaderLayoutDesign routeName="profile" routeTitle="PROFILE" setMenuitem={setMenuitem} menuitem={menuitem}  goBackAllowed={menuitem !== "profile" ? true : false}/>
+          <HeaderLayoutDesign routeName="profile"  routeTitle={menuItemTitles[menuitem] || "PROFILE"} setMenuitem={setMenuitem} menuitem={menuitem} />
           <View style={styles.profilecontainer}>
           <View style={styles.innercontainer}>
             {displayToRender({ menuitem })}
@@ -85,6 +90,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: "column",
     justifyContent: "space-between",
-    height: Screenheight * 0.76,
   },
 });

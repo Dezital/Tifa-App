@@ -5,12 +5,14 @@ import MaskInput, { Masks } from 'react-native-mask-input';
 interface Props {
   dob: string;
   setDob: (value: string) => void;
+  isDarkcolor?: boolean
 }
 
-const DateOfBirthInput = ({ dob, setDob }: Props) => {
+const DateOfBirthInput = ({ dob, setDob, isDarkcolor }: Props) => {
+  const darker = isDarkcolor ? "rgba(21, 23, 24, 1)" : "#1E2021";
   return (
     <MaskInput
-      style={styles.input}
+      style={[styles.input, {backgroundColor: darker}]}
       placeholder="MM/DD/YYYY"
       placeholderTextColor="#7D7D7D"
       value={dob}
@@ -34,7 +36,6 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingBottom: 8,
     paddingLeft: 16,
-    backgroundColor: "#1E2021",
     borderRadius: 12,
     marginVertical: 7,
     paddingHorizontal: 15,

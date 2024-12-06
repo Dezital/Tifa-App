@@ -6,18 +6,21 @@ interface Props {
     password: string;
     setPassword: (password: string) => void;
     isPasswordVisible: boolean;
+    placeHolder?: string;
+    isDarkBg?: boolean;
 
     togglePasswordVisibility: () => void;
   }
-const Inputfields = ({ password, setPassword, isPasswordVisible, togglePasswordVisibility }: Props) => {
+const Inputfields = ({ password, setPassword, isPasswordVisible, togglePasswordVisibility, placeHolder, isDarkBg }: Props) => {
   const eyeIcon = <Ionicons name="eye" size={20} color= "rgba(142, 142, 147, 1)" />
   const eyeIconClosed = <Ionicons name="eye-off" size={20} color="rgba(142, 142, 147, 1)" />
+  const backgroundColor = isDarkBg ? "rgba(21, 23, 24, 1)" : "#1E2021"
 
   return (
-    <View style={styles.passwordContainer}>
+    <View style={[styles.passwordContainer, {backgroundColor: backgroundColor}]}>
                 <TextInput
                   style={styles.passwordInput}
-                  placeholder="Search"
+                  placeholder={placeHolder || "Search"}
                   placeholderTextColor="#7D7D7D"
                   secureTextEntry={!isPasswordVisible}
                   value={password}
@@ -39,7 +42,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         height: 50,
         alignItems: "center",
-        backgroundColor: "#1E2021",
         borderRadius: 12,
         marginVertical: 7,
         paddingTop: 8,

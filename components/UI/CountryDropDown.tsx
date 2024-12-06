@@ -8,6 +8,8 @@ interface Props {
   selectedValue: string;
   setSelectedValue: (value: string) => void;
   isLanguageSwitcher?: boolean;
+  isDarkBg?: boolean
+  isFeedback?: boolean
 }
 
 interface Option {
@@ -15,8 +17,8 @@ interface Option {
   value: string;
 }
 
-const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher }: Props) => {
-  
+const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, isDarkBg, isFeedback }: Props) => {
+  const darker = isDarkBg ? "rgba(21, 23, 24, 1)" : "#1E2021";
   const [modalVisible, setModalVisible] = useState(false);
   const options = [
     { label: 'Netherlands', value: 'Netherlands' },
@@ -35,7 +37,15 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher }
     { label: 'Dutch', value: 'Dutch'},
     { label: 'Spanish', value: 'Spanish'}
   ]
-  const optionToRender = isLanguageSwitcher ? LanguageOption : options;
+  const feedbackoption =[
+    { label: 'Bugs', value: 'Bugs'},
+    { label: 'Functionality', value: 'Functionality'},
+    { label: 'Design', value: 'Design'},
+    { label: 'Suggestions', value: 'Suggestions'},
+    { label: 'Other', value: 'Other'},
+  ]
+
+  const optionToRender = isLanguageSwitcher ? LanguageOption : isFeedback ? feedbackoption : options
   const handleSelect = (value: string) => {
     setSelectedValue(value);
     setModalVisible(false);
@@ -55,9 +65,8 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher }
 
   return (
     <View style={{ marginVertical: marginver, width: widthfull}}>
-      {isLanguageSwitcher ? 
-      <ProfileMenuItem icon={languageIcon} menuTitle="Language" onPress={() => setModalVisible(true)}/> :
-      <TouchableOpacity style={styles.dropdown} onPress={() => setModalVisible(true)}>
+      {isLanguageSwitcher  && <ProfileMenuItem icon={languageIcon} menuTitle="Language" onPress={() => setModalVisible(true)}/> }
+      {!isLanguageSwitcher && <TouchableOpacity style={[styles.dropdown, { backgroundColor: darker }]} onPress={() => setModalVisible(true)}>
         <Text style={styles.selectedText}>{selectedValue || 'Select an Option'}</Text>
         <Ionicons name="chevron-down-outline" size={20} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
       </TouchableOpacity>
@@ -85,7 +94,6 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher }
 
 const styles = StyleSheet.create({
   dropdown: {
-    backgroundColor: '#1E2021',
     borderRadius: 12,
     padding: 10,
     height: 50,

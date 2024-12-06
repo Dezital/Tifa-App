@@ -9,23 +9,18 @@ interface MainProps {
   routeName: string;
   routeTitle: string;
   setMenuitem?: React.Dispatch<React.SetStateAction<string>>
-  goBackAllowed?: boolean
   menuitem?: string
 }
 
-const HeaderLayoutDesign = ({ routeName, routeTitle, setMenuitem, goBackAllowed, menuitem }: MainProps) => {
+const HeaderLayoutDesign = ({ routeName, routeTitle, setMenuitem, menuitem }: MainProps) => {
   const router = useRouter();
   
   const onBackPress = () => {
-    if(!menuitem && goBackAllowed){
+    if(menuitem && setMenuitem && menuitem !== "profile"){
+      setMenuitem("profile")
+    } else{ 
       router.back();
-    } else if (goBackAllowed && menuitem === "profile"){ {
-      router.back();
-    } 
   } 
-    else {
-      router.back();
-    }
   }
 
   return (
