@@ -13,19 +13,22 @@ interface Props {
     password: string;
     setPassword: (password: string) => void;
     togglePasswordVisibility: () => void;
+    isdarkerBg?: boolean
   }
 
 const SearchBarModule = ({
   password,
   setPassword,
   togglePasswordVisibility,
+  isdarkerBg,
 }: Props) => {
   const searchIcon = (
     <Ionicons name="search-outline" size={20} color="rgba(0, 140, 255, 1)" />
   );
+  const backgroundColor = isdarkerBg ? "rgba(23, 23, 23, 1)" : "#1E2021"
 
   return (
-    <View style={styles.passwordContainer}>
+    <View style={[styles.passwordContainer, {backgroundColor: backgroundColor}]}>
       <TextInput
         style={styles.passwordInput}
         placeholder="Search"
@@ -47,7 +50,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 50,
     alignItems: "center",
-    backgroundColor: "#1E2021",
     borderRadius: 12,
     marginTop: 7,
     paddingTop: 8,
