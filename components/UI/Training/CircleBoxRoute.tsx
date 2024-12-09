@@ -35,8 +35,8 @@ const CircleBoxRouteStyles = StyleSheet.create({
     zIndex: 1,
   },
   circleROuteOverlay: {
-    width: 105,
-    height: 105,
+    width: 104,
+    height: 104,
     borderRadius: 100,
     backgroundColor: "rgba(102, 102, 102, 1)",
     alignItems: "center",

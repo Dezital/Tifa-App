@@ -81,8 +81,8 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, 
       }
       {isSortFilter &&
       <TouchableOpacity style={[styles.filter, { backgroundColor: darker }]} onPress={() => setModalVisible(true)}>
-          <Ionicons name="filter" size={20} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
-        <Text style={styles.selectedText}>{selectedValue || 'Filter'}</Text>
+          <Ionicons name="filter" size={19} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
+        <Text style={styles.selectedText}>{selectedValue || 'Sort'}</Text>
         </TouchableOpacity>
       }
 
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
   },
   filter:{
     borderRadius: 12,
-    padding: 5,
     marginTop: 4,
     paddingVertical: 15,
     justifyContent: 'space-between',
@@ -128,7 +127,7 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     color: "rgba(142, 142, 147, 1)",
-    fontSize: 15,
+    fontSize: 14,
     flex: 1,
   },
   icon: {

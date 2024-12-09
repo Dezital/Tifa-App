@@ -1,20 +1,31 @@
 
-
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, ActivityIndicator, Dimensions } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 interface VideoPlayerProps {
   videoUrl: string;
   onBackPress: () => void; // Callback to handle back navigation
 }
 
-const screenHeight = Dimensions.get('window').height;
-const screenwidth = Dimensions.get('window').width;
-
 const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
   const [isLoading, setIsLoading] = useState(true); // Loader state
-  const videoRef = useRef(null);
+  const videoRef = useRef<Video>(null);
+
+  useEffect(() => {
+    // Lock orientation to landscape when component mounts
+    const lockOrientation = async () => {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+    };
+
+    lockOrientation();
+
+    // Reset orientation to portrait on unmount
+    return () => {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+    };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -42,14 +53,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 25,
-    marginTop: 20,
     borderRadius: 10,
   },
   video: {
-    width: '100%', // Full screen width
-    minHeight: 300, // Set height; adjust to your design
+    width: '100%',
+    height: Dimensions.get('window').height, // Full height for landscape
     borderRadius: 10,
   },
   loader: {

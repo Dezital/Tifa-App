@@ -5,6 +5,7 @@ import { HeaderLayoutDesign } from "../../components/HeaderLayoutDesign";
 import SearchBarModule from "@/components/UI/SearchBarModule";
 import CountryDropDown from "@/components/UI/CountryDropDown";
 import { Ionicons } from "@expo/vector-icons";
+import { ThemedText } from "@/components/ThemedText";
 const magezinePlaceholder = require("../../assets/images/magezineImg.png");
 const addTifa = require("../../assets/images/addTifa.png");
 
@@ -100,13 +101,13 @@ const MagezineCard = () => {
           <Text style={{ color: "rgba(136, 136, 136, 1)" }}>22-Nov-2024</Text>
         </View>
       </View>
-      <Text style={{ fontWeight: "700", fontSize: 24, lineHeight: 32, color: "rgba(0, 140, 255, 1)" }}>TIFA Sports</Text>
-      <Text style={{ fontWeight: "400", fontSize: 13, lineHeight: 18, color: "rgba(201, 201, 201, 1)" }}>
+      <ThemedText style={{ fontWeight: "700", fontSize: 24, lineHeight: 32, color: "rgba(0, 140, 255, 1)" }}>TIFA Sports</ThemedText>
+      <ThemedText style={{ fontWeight: "400", fontSize: 13, lineHeight: 18, color: "rgba(201, 201, 201, 1)" }}>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremq. Sed ut perspiciatis unde omnis iste natus error
         sit voluptatem accusantium doloremq.Sed ut perspiciatis unde omnis iste
         natus error sit voluptatem accusantium doloremq.
-      </Text>
+      </ThemedText>
     </View>
   );
 };
@@ -120,6 +121,7 @@ const AdComp = () => {
         borderColor: "rgba(102, 102, 102, 0.25)",
         padding: 10,
         borderRadius: 10,
+        alignItems: "center",
         flexDirection: "row",
         gap: 15,
         marginVertical: 20,
@@ -132,10 +134,10 @@ const AdComp = () => {
         />
       </View>
       <View style={{ flex: 2 }}>
-        <Text style={{ fontWeight: "400", fontSize: 13, lineHeight: 18, color: "rgba(201, 201, 201, 1)" }}>
+        <ThemedText style={{ fontWeight: "400", fontSize: 13, lineHeight: 18, color: "rgba(201, 201, 201, 1)" }}>
           Sed ut perspiciatis unde omnis nde omn perspiciatis
           uperspiciatierspiciatis uperspiciatis.
-        </Text>
+        </ThemedText>
       </View>
     </View>
   );
