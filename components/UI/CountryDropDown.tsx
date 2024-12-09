@@ -10,6 +10,7 @@ interface Props {
   isLanguageSwitcher?: boolean;
   isDarkBg?: boolean
   isFeedback?: boolean
+  isSortFilter?: boolean
 }
 
 interface Option {
@@ -17,7 +18,7 @@ interface Option {
   value: string;
 }
 
-const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, isDarkBg, isFeedback }: Props) => {
+const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, isDarkBg, isFeedback, isSortFilter }: Props) => {
   const darker = isDarkBg ? "rgba(21, 23, 24, 1)" : "#1E2021";
   const [modalVisible, setModalVisible] = useState(false);
   const options = [
@@ -44,8 +45,15 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, 
     { label: 'Suggestions', value: 'Suggestions'},
     { label: 'Other', value: 'Other'},
   ]
+  
+  const filteroptions =[
+    { label: 'New on top', value: 'Not'},
+    { label: 'Old on top', value: 'Oot'},
+    { label: 'Alphabetical', value: 'Alphabetical'},
+  ]
 
-  const optionToRender = isLanguageSwitcher ? LanguageOption : isFeedback ? feedbackoption : options
+  const optionToRender = isLanguageSwitcher ? LanguageOption : isFeedback ? feedbackoption : isSortFilter ? filteroptions : options 
+
   const handleSelect = (value: string) => {
     setSelectedValue(value);
     setModalVisible(false);
@@ -66,10 +74,16 @@ const CountryDropDown = ({ selectedValue, setSelectedValue, isLanguageSwitcher, 
   return (
     <View style={{ marginVertical: marginver, width: widthfull}}>
       {isLanguageSwitcher  && <ProfileMenuItem icon={languageIcon} menuTitle="Language" onPress={() => setModalVisible(true)}/> }
-      {!isLanguageSwitcher && <TouchableOpacity style={[styles.dropdown, { backgroundColor: darker }]} onPress={() => setModalVisible(true)}>
+      {!isLanguageSwitcher &&  !isFeedback && !isSortFilter &&<TouchableOpacity style={[styles.dropdown, { backgroundColor: darker }]} onPress={() => setModalVisible(true)}>
         <Text style={styles.selectedText}>{selectedValue || 'Select an Option'}</Text>
         <Ionicons name="chevron-down-outline" size={20} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
       </TouchableOpacity>
+      }
+      {isSortFilter &&
+      <TouchableOpacity style={[styles.filter, { backgroundColor: darker }]} onPress={() => setModalVisible(true)}>
+          <Ionicons name="filter" size={20} color="rgba(199, 199, 199, 1)" style={styles.icon} /> 
+        <Text style={styles.selectedText}>{selectedValue || 'Filter'}</Text>
+        </TouchableOpacity>
       }
 
       <Modal visible={modalVisible} transparent={true} animationType="fade">
@@ -99,6 +113,16 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     paddingHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  filter:{
+    borderRadius: 12,
+    padding: 5,
+    marginTop: 4,
+    paddingVertical: 15,
+    justifyContent: 'space-between',
+    gap: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },

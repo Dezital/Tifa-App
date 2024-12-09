@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { HeroItem } from '../../../components/UI/Home/SuperHeros';
 import { useRouter, useLocalSearchParams } from'expo-router';
 import Divider from '@/components/UI/Divider';
+import IronStrikeHeading from '@/components/UI/TypoGrapghy/IronStrikeHeading';
 
 const tabsHeadings = [
   {
@@ -88,7 +89,7 @@ const SuperHeroProfile: React.FC<{ data: HeroItem }> = ({ data }) => {
   return (
     <View style={superHeroProfileStyles.container}>
       <Image style={superHeroProfileStyles.image} source={data.image} />
-      <Text style={superHeroProfileStyles.nameText}>{data.name}</Text>
+      <IronStrikeHeading variant="playerName" title={data.name || ''} />
       <Text style={superHeroProfileStyles.descriptionText}>{data.desc}</Text>
       <View style={superHeroProfileStyles.rowContainer}>
         <Text style={superHeroProfileStyles.nationalityText}>Nationality </Text>
@@ -97,14 +98,14 @@ const SuperHeroProfile: React.FC<{ data: HeroItem }> = ({ data }) => {
      <Divider />
       <View style={superHeroProfileStyles.rowContainer}>
         <Text style={superHeroProfileStyles.teamText}>Team </Text>
-        <Text style={superHeroProfileStyles.teamValue}>{data.Team}</Text>
+        <IronStrikeHeading variant="redColored" title={data.Team || ''} />
       </View>
       <View style={superHeroProfileStyles.statsContainer}>
         <View style={superHeroProfileStyles.statBox}>
-          <Text style={superHeroProfileStyles.statValue}>{data.Position}</Text>
+          <IronStrikeHeading variant="largest" title={data.Position || ''} />
         </View>
         <View style={superHeroProfileStyles.statBox}>
-          <Text style={[superHeroProfileStyles.statValue, {fontSize: 50}]}>{data.Age}</Text>
+          <IronStrikeHeading variant="number" title={data.Age || ''} />
         </View>
       </View>
       <View style={[superHeroProfileStyles.statsContainer, {marginTop: -5}]}>
@@ -129,14 +130,6 @@ const superHeroProfileStyles = StyleSheet.create({
   image: {
     width: 147,
     height: 437,
-  },
-  nameText: {
-    fontWeight: "900",
-    fontSize: 18,
-    lineHeight: 18,
-    fontStyle: "italic",
-    color: "#fff",
-    marginTop: 25,
   },
   descriptionText: {
     fontWeight: "400",
@@ -168,13 +161,6 @@ const superHeroProfileStyles = StyleSheet.create({
     lineHeight: 18,
     color: "rgba(190, 190, 190, 1)",
   },
-  teamValue: {
-    fontWeight: "900",
-    fontSize: 16,
-    fontStyle: "italic",
-    lineHeight: 18,
-    color: "rgba(255, 0, 0, 1)",
-  },
   statBox: {
     flex: 1, 
     backgroundColor: "rgba(21, 30, 42, 1)",
@@ -191,15 +177,6 @@ const superHeroProfileStyles = StyleSheet.create({
     marginTop: 25,
     gap: 10, 
   },
-  statValue: {
-    flex: 1,
-    fontWeight: "900",
-    fontSize: 28,
-    fontStyle: "italic",
-    textAlign: "center",
-    color: "rgba(190, 190, 190, 1)",
-  },
-  
   statLabel: {
     fontWeight: "400",
     fontSize: 14,

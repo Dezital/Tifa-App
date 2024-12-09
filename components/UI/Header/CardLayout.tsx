@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ImageBackground } from 'react-native'
 import React from 'react'
+import IronStrikeHeading from '../TypoGrapghy/IronStrikeHeading';
 const placeHolderBg = require("../../../assets/images/placeHolderBg.png");
 const indexImage = require("../../../assets/images/homeImage.png");
 interface Props {
@@ -19,7 +20,7 @@ const CardLayout = ({routeName}: Props) => {
           { routeName === "homework" &&
           <>
           <View style={headerOverlayBoxCard.overlay} />
-          <Text style={headerOverlayBoxCard.heading}>Homework</Text>
+          <IronStrikeHeading variant="cardlayout" title="Homework" />
           <Text style={headerOverlayBoxCard.desc}>
             Below is the list of homework related activities that comes under your
             subscription. Follow the text and the relevant video provided with each.
@@ -41,13 +42,6 @@ const headerOverlayBoxCard = StyleSheet.create({
       marginBottom: -35,
       height: 170,
       overflow: "hidden",
-    },
-    heading: { 
-      fontWeight: "900",
-      fontSize: 34,
-      color: "rgba(0, 140, 255, 1)",
-      textAlign: "center",
-      fontStyle: "italic",
     },
     programModuleBg: {
         flex: 1,

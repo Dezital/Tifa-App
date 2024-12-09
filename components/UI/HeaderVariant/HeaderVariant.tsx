@@ -67,20 +67,3 @@ const TextheaderStyles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-const NotificationComponentStyles = StyleSheet.create({
-  notificationContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    borderRadius: 150,
-    borderWidth: 1,
-    borderColor: "transparent",
-    width: 45,
-    height: 45,
-  },
-  notificationIcon: {
-    width: 19,
-  },
-});

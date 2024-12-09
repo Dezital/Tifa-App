@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity,  } from 'react-native';
 import React from 'react';
 import { HeroItem } from './SuperHeros';
+import IronStrikeHeading from '../TypoGrapghy/IronStrikeHeading';
 
 interface Props {
     items: HeroItem[];
@@ -15,9 +16,7 @@ const SliderControls = ({ items, paginationIndex, onPrevious, onNext }: Props) =
         <TouchableOpacity onPress={onPrevious}>
           <Text style={styles.textstyle}>◀</Text>
         </TouchableOpacity>
-        <Text style={styles.textstyle}>
-          {items[paginationIndex]?.name || ''}
-        </Text>
+        <IronStrikeHeading variant="title" title={items[paginationIndex]?.name || ''}  />
         <TouchableOpacity onPress={onNext}>
           <Text style={styles.textstyle}>▶</Text>
         </TouchableOpacity>

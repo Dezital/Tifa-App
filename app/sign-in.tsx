@@ -1,6 +1,7 @@
 import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { ReuseButton } from '@/components/UI/Button';
+import { ThemedText } from '@/components/ThemedText';
 
 const image = require('../assets/images/get-Started-Screen.png');
 const logo = require('../assets/images/tifa-logo-blue.png');
@@ -17,11 +18,12 @@ export default function SignIn() {
           </View>
           {/* Content on top of overlay */}
           <View style={styles.buttonContainer}>
-            <Text style={styles.headerText}>Start your future with TIFA</Text>
-            <Text style={styles.headerDesc}>Your journey to become the next football
-            start begins here!</Text>
-            <ReuseButton formatBlue="blue" routeLink="/sign-up" Title="GET STARTED / SIGN UP" />
-            <ReuseButton formatBlue="transparent" routeLink="/login-in" Title="I ALREADY HAVE AN ACCOUNT" />
+            <View>
+            <ThemedText type="variantHeading">START DEVELOPING WITH TIFA</ThemedText>
+            <ThemedText type="secondary" style={{ textAlign: 'center', paddingBottom: 10 }}>Your roadmap to become an elite player starts here!</ThemedText>
+            </View>
+            <ReuseButton formatBlue="blue" routeLink="/sign-up" Title="SIGN UP" />
+            <ReuseButton formatBlue="transparent" routeLink="/login-in" Title="LOGIN" />
           </View>
         </ImageBackground>
       </SafeAreaView>
@@ -60,27 +62,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 27,
     width: '100%',
     zIndex: 1, // Ensures buttons are above the overlay
-  },
-  headerText: {
-    color: 'white',
-    fontSize: 28,
-    lineHeight: 32,
-    textAlign: 'center',
-    zIndex: 1, // Ensures text is above the overlay
-  },
-  headerDesc: {
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: 'center',
-    color: 'rgba(199, 199, 199, 1)',
-    zIndex: 1, // Ensures text is above the overlay
-  },
-  footerText: {
-    color: 'black',
-    fontSize: 12,
-    marginBottom: 20,
-    textAlign: 'center',
-    zIndex: 1, // Ensures text is above the overlay
   },
 });
 

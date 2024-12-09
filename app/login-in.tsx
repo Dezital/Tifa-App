@@ -16,6 +16,7 @@ import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { AuthButton, AuthProviderButton } from "@/components/UI/Button";
 import { Inputfields } from "@/components/UI/Inputfields";
+import { ThemedText } from "@/components/ThemedText";
 const image = require("../assets/images/tifa_logo.png");
 
 const LoginScreen = () => {
@@ -95,12 +96,11 @@ const LoginScreen = () => {
             <Image style={styles.logo} source={image} />
             <View style={styles.formContainer}>
               {/* TITLE & TEXT */}
-              <Text style={styles.title}>
-                Welcome to <Text style={styles.titleSpan}>TIFA!</Text>
-              </Text>
-              <Text style={styles.futuretext}>Enter the future!</Text>
+              <ThemedText type="title" style={{ textAlign: "center", color: "white" }}> Welcome to <Text style={styles.titleSpan}>TIFA!</Text>
+              </ThemedText>
+              <ThemedText style={styles.futuretext} type="default">Talet Development</ThemedText>
               {/* EMAIL INPUT */}
-              <Text style={styles.textfieldlabel}>Email</Text>
+              <ThemedText type={"textfieldlabel"}>Email</ThemedText>
               <TextInput
                 style={styles.input}
                 placeholder="Email Address"
@@ -110,7 +110,7 @@ const LoginScreen = () => {
                 autoComplete="email"
               />
               {/* PASSWORD INPUT */}
-              <Text style={styles.textfieldlabel}>Password</Text>
+              <ThemedText type={"textfieldlabel"}>Password</ThemedText>
               <Inputfields
                 password={password}
                 setPassword={setPassword}
@@ -122,7 +122,7 @@ const LoginScreen = () => {
                 style={styles.forgotButton}
                 onPress={handleForgotPassword}
               >
-                <Text style={styles.forgotText}>Forgot Password?</Text>
+                <ThemedText type={"textfieldlabel"}>Forgot Password?</ThemedText>
               </TouchableOpacity>
               <AuthButton
                 formatBlue="blue"
@@ -158,7 +158,7 @@ const LoginScreen = () => {
                 Title="Sign In with Facebook"
               />
             </View>
-            <Text style={[styles.futuretext, styles.signinLinkText]}>
+            <ThemedText style={[styles.futuretext, styles.signinLinkText]}>
               Don’t have an account?{" "}
               <Text
                 onPress={() => router.push("/sign-up")}
@@ -166,7 +166,7 @@ const LoginScreen = () => {
               >
                 SIGN UP
               </Text>
-            </Text>
+            </ThemedText>
 
             <View style={styles.formContainer}></View>
           </View>
@@ -194,14 +194,6 @@ const styles = StyleSheet.create({
     height: 66,
     marginBottom: 30,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: "#ffffff",
-    lineHeight: 32,
-    marginBottom: 10,
-    textAlign: "center",
-  },
   titleSpan: {
     fontWeight: "800",
     color: "rgba(0, 140, 255, 1)",
@@ -215,16 +207,6 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     color: "rgba(142, 142, 147, 1)",
     textAlign: "center",
-  },
-  textfieldlabel: {
-    fontSize: 15,
-    fontWeight: "400",
-    lineHeight: 20,
-    letterSpacing: -0.4,
-    color: "#fff",
-    textAlign: "left",
-    alignSelf: "flex-start",
-    marginTop: 15,
   },
   formContainer: {
     width: "100%",
@@ -289,6 +271,7 @@ const styles = StyleSheet.create({
   orText: {
     color: "rgba(142, 142, 147, 1)",
     textAlign: "center",
+    fontFamily: "DMSansRegVar",
     fontSize: 14,
     fontWeight: "400",
     lineHeight: 20,

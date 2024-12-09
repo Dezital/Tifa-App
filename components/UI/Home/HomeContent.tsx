@@ -4,6 +4,8 @@ import CardLayout from '../Header/CardLayout';
 import TifaIconBox from './TifaIconBox';
 import SuperHeroSlider from './SuperHeros';
 import GameView from './Games/GameView';
+import IronStrikeHeading from '../TypoGrapghy/IronStrikeHeading';
+import { ThemedText } from '@/components/ThemedText';
 
 interface HomeContentProps {
   activeIndex: number;
@@ -36,8 +38,8 @@ const Stats = () => {
   return (
     <View style={[styles.tifaSportsContainer, {padding: 20}]} >
         <CardLayout routeName='index' />
-      <Text style={styles.tifatext}>TIFA Sports Institute is all about the individual talent development of every player as we focus on functional technique. Apart from the technical aspects we also value motivation, self-believe, and mentality. All these aspects are incorporated into our training philosophy and conversations we have with our players. All this makes us prides the best talent developing institute of The Netherlands.</Text>
-      <Text style={styles.tifaStatsHeading}>Tifa Stats</Text>
+      <ThemedText style={styles.tifatext}>TIFA Sports Institute is all about the individual talent development of every player as we focus on functional technique. Apart from the technical aspects we also value motivation, self-believe, and mentality. All these aspects are incorporated into our training philosophy and conversations we have with our players. All this makes us prides the best talent developing institute of The Netherlands.</ThemedText>
+      <IronStrikeHeading variant='default'  title="Tifa Stats" />
       <View style={styles.IconBoxContainer}>
       <TifaIconBox iconurl={noPlayers} title="750" subtitle="No. of Players" />
       <TifaIconBox iconurl={academy} title="55%" subtitle="% Academy"  />
@@ -69,21 +71,14 @@ const Games = () => {
 
 const styles = StyleSheet.create({
     tifaSportsContainer: {
-      marginTop: 23,
+      marginTop: 20,
     },
     tifatext: {
         marginTop: 50,
         color: 'rgba(174, 174, 174, 1)',
         lineHeight: 18,
+        fontWeight: '400',
         fontSize: 13,
-    },
-    tifaStatsHeading: {
-      marginTop: 30,
-      fontWeight: '900',
-      fontStyle: 'italic',
-      fontSize: 16,
-      lineHeight: 16,
-      color:"#fff"
     },
     IconBoxContainer:{
       flexDirection: 'row',

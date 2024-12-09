@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
 import React from 'react'
+import { ThemedText } from '@/components/ThemedText';
 const placeholder = require("../../../assets/images/mvp.png");
 const screenWidth = Dimensions.get('window').width;
 
@@ -16,8 +17,8 @@ const TifaIconBox = ({iconurl, title, subtitle} : TifaIconBoxProps) => {
   return (
     <View style={[styles.IconBoxContainer, { width: calculatedWidth }]}>
         <Image style={styles.imageStyle} source={iconurl ? iconurl : placeholder} />
-      <Text style={styles.titleStyle}>{title}</Text>
-      <Text  style={styles.subtitleStyle}>{subtitle}</Text>
+      <ThemedText style={styles.titleStyle}>{title}</ThemedText>
+      <ThemedText  style={styles.subtitleStyle}>{subtitle}</ThemedText>
     </View>
   )
 }
@@ -43,15 +44,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontStyle: "italic",
         textAlign: "center",
-        marginVertical: 7
+        marginVertical: 5
     },
     subtitleStyle: {
         color: 'rgba(221, 221, 221, 1)',
-        fontSize: 11,
+        fontSize: 12,
         marginTop: 10,
         textAlign: 'center',
         fontWeight: '300',
-        paddingBottom: 3,
+        lineHeight: 15
       }
 })
 export default TifaIconBox

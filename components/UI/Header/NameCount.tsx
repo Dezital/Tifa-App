@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import IronStrikeHeading from '../TypoGrapghy/IronStrikeHeading';
 
 interface NameCountProps { // Renamed to match the component name
   headerVariant?: boolean;
@@ -12,7 +13,7 @@ const NameCount = ({ headerVariant, text, count }: NameCountProps) => {
 
   return (
     <View style={[NameContStyles.headerFlex, { marginTop }]}>
-      <Text style={NameContStyles.headerText}>{headerVariant ? "" : text}</Text>
+      <IronStrikeHeading variant="ballcontrol" title={headerVariant ? "" : text || ''}/>
       <Text style={NameContStyles.count}>{headerVariant ? "8 Videos" : count}</Text>
     </View>
   );
@@ -26,12 +27,6 @@ const NameContStyles = StyleSheet.create({
     paddingLeft: 20,
     marginBottom: 10,
     paddingRight: 20,
-  },
-
-  headerText: {
-    fontWeight: "900",
-    fontSize: 16,
-    color: "rgba(255, 255, 255, 1)",
   },
 
   count: {

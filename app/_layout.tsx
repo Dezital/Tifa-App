@@ -13,8 +13,9 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    DMSansRegVar: require('../assets/fonts/DmSansVar.ttf'),
     Vermin: require('../assets/fonts/VerminVibesSlant.ttf'),
+    Ironstrike: require('../assets/fonts/ironStrike.otf'),
   });
 
   useEffect(() => {

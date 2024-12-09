@@ -96,9 +96,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontWeight: "400",
-    lineHeight: 19,
-    fontSize: 14,
+    fontWeight: "500",
+    fontFamily: "DMSansRegVar",
+    lineHeight: 21,
+    fontSize: 16,
   },
 });
 
