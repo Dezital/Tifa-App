@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import {HeaderLayoutDesign} from "../../components/HeaderLayoutDesign";
+import { HeaderLayoutDesign } from "../../components/HeaderLayoutDesign";
 import IndexData from "../../components/IndexData.json";
 import HeaderOverlayBox from "@/components/UI/Training/HeaderOverlayBox";
 import HomeContent from "@/components/UI/Home/HomeContent";
+import ModalComponent from "@/components/UI/Modal";
+import { ThemedText } from "@/components/ThemedText";
 
 //import trainingData from "../../components/Training.json";
 //const placeholder = require("../assets/images/Tifa-loading-Screen.jpg"); //use this as placeholder for all images
@@ -16,18 +18,33 @@ import HomeContent from "@/components/UI/Home/HomeContent";
 
 function Index() {
   const { Index } = IndexData;
-    // State to manage active selection
-    const [activeIndex, setActiveIndex] = useState(0);
+  // State to manage active selection
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <SafeAreaProvider style={{backgroundColor: "rgba(0, 54, 171, 1)"}}>
+    <SafeAreaProvider style={{ backgroundColor: "rgba(0, 54, 171, 1)" }}>
       <SafeAreaView style={styles.container}>
-      <ScrollView style={{ width: "100%" }} contentContainerStyle={styles.scrollContainer}>
-      <HeaderLayoutDesign routeName="index" routeTitle="HOME"/> 
-      <View style={{marginTop: -65, paddingHorizontal: 20}}>
-      <HeaderOverlayBox dataInd={Index} activeIndex={activeIndex} setActiveIndex={setActiveIndex} routeName="index" />
-      </View>
-      <HomeContent activeIndex={activeIndex} routeName="index"  />
-     </ScrollView>
+        <ScrollView
+          style={{ width: "100%" }}
+          contentContainerStyle={styles.scrollContainer}
+        >
+          <ModalComponent
+            openPopup={true} // Automatically opens the modal
+            closePopup={() => console.log("Modal closed")}
+          >
+            <ThemedText type="default">Custom content inside modal</ThemedText>
+          </ModalComponent>
+
+          <HeaderLayoutDesign routeName="index" routeTitle="HOME" />
+          <View style={{ marginTop: -65, paddingHorizontal: 20 }}>
+            <HeaderOverlayBox
+              dataInd={Index}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+              routeName="index"
+            />
+          </View>
+          <HomeContent activeIndex={activeIndex} routeName="index" />
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -46,11 +63,7 @@ const styles = StyleSheet.create({
 });
 
 //export default Sentry.wrap(Index)
-export default Index
-
-
-
-
+export default Index;
 
 /*
 import auth from "@react-native-firebase/auth"; // Import Firebase Auth

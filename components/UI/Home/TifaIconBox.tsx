@@ -13,7 +13,7 @@ interface TifaIconBoxProps {
 
 
 const TifaIconBox = ({iconurl, title, subtitle} : TifaIconBoxProps) => {
-  const calculatedWidth = screenWidth * 0.27;
+  const calculatedWidth = screenWidth * 0.265;
   return (
     <View style={[styles.IconBoxContainer, { width: calculatedWidth }]}>
         <Image style={styles.imageStyle} source={iconurl ? iconurl : placeholder} />

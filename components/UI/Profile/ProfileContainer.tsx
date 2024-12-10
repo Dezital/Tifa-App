@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import auth from "@react-native-firebase/auth"; // Import Firebase Auth
 import { useSession } from "../../../ctx";
-import { Alert, Text, View, Dimensions } from "react-native";
+import { Alert, Text, View } from "react-native";
 import ProfileHeader from "./ProfileHeader";
 import ProfileMenuItem from "./ProfileMenuItem";
 import CountryDropDown from "../CountryDropDown"
@@ -11,7 +11,6 @@ const bellIcon = require("../../../assets/images/profileicons.png");
 const subcriptionIcon = require("../../../assets/images/subscriptionIcon.png");
 const feedbackIcon = require("../../../assets/images/feedBack.png");
 
-const Screenheight = Dimensions.get("window").height;
 const ProfileContainer = ({setMenuitem}:{setMenuitem: React.Dispatch<React.SetStateAction<string>>}) => {
 
     const [country, setCountry] = useState("");
@@ -28,7 +27,7 @@ const ProfileContainer = ({setMenuitem}:{setMenuitem: React.Dispatch<React.SetSt
     };
     return (
        <>
-        <View style={{height: Screenheight * 0.66,}}>
+        <View >
         <ProfileHeader setMenuitem={setMenuitem} />
         <Divider/>
         <Text style={{color: "rgba(126, 126, 126, 1)",fontSize: 14, paddingTop: 10, fontWeight:"400"}}>Content</Text>
@@ -40,7 +39,7 @@ const ProfileContainer = ({setMenuitem}:{setMenuitem: React.Dispatch<React.SetSt
         <ProfileMenuItem icon={feedbackIcon} menuTitle="Change Password" onPress={() => {setMenuitem("changePassword")}} />
         <ProfileMenuItem icon={feedbackIcon} menuTitle="Delete Account" onPress={() => {setMenuitem("deleteAccount")}} />
         </View>
-        <View>
+        <View style={{marginTop: 20}}>
           <AuthButton formatBlue="blue" asyncFunctionPass={handleSignOut} Title="LOGOUT" />
         </View>
         </>

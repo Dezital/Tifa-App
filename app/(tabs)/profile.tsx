@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     width: "100%", // Ensures full-width
     backgroundColor: "rgba(21, 23, 24, 1)",
+    paddingBottom: 50,
   },
   profilecontainer: {
     flex: 1,
