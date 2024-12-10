@@ -4,7 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import LoadingScreen from '@/components/LoadingScreen';
-import { setStatusBarStyle } from "expo-status-bar";
+import { setStatusBarBackgroundColor, setStatusBarStyle } from "expo-status-bar";
 import { Slot } from "expo-router"
 import { SessionProvider } from '../ctx';
 
@@ -27,6 +27,7 @@ export default function RootLayout() {
   useEffect(() => {
     setTimeout(() => {
       setStatusBarStyle("light");
+      setStatusBarBackgroundColor("rgba(21, 23, 24, 1)");
     }, 0);
   }, []);
 

@@ -151,13 +151,6 @@ const LoginScreen = () => {
                 Title="Sign In with Apple ID"
               />
             </View>
-            <View style={styles.flexContainer}>
-              <AuthProviderButton
-                formatBlue="facebook"
-                asyncFunctionPass={signInGoogle}
-                Title="Sign In with Facebook"
-              />
-            </View>
             <ThemedText style={[styles.futuretext, styles.signinLinkText]}>
               Don’t have an account?{" "}
               <Text

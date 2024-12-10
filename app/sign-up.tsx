@@ -114,13 +114,6 @@ const signup = () => {
                   Title="Sign In with Apple ID"
                 />
               </View>
-              <View style={styles.flexContainer}>
-                <AuthProviderButton
-                  formatBlue="facebook"
-                  asyncFunctionPass={signInGoogle}
-                  Title="Sign In with Facebook"
-                />
-              </View>
               <Text style={styles.textfieldlabel}>Email</Text>
               <TextInput
                 style={styles.input}

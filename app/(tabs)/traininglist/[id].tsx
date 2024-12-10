@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "rgba(21, 23, 24, 1)",
-    paddingTop: 45,
+    paddingTop: 17,
     paddingLeft: 25,
     paddingRight: 25,
   },

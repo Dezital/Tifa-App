@@ -30,7 +30,9 @@ const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
   return (
     <View style={styles.container}>
       {isLoading && (
+        <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
         <ActivityIndicator size="large" color="#fff" style={styles.loader} />
+        </View>
       )}
 
       <Video
@@ -52,7 +54,6 @@ const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     borderRadius: 10,
   },
   video: {

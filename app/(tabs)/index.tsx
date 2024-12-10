@@ -7,6 +7,8 @@ import HeaderOverlayBox from "@/components/UI/Training/HeaderOverlayBox";
 import HomeContent from "@/components/UI/Home/HomeContent";
 import ModalComponent from "@/components/UI/Modal";
 import { ThemedText } from "@/components/ThemedText";
+import "../../utilis/i18n";
+import { useTranslation } from "react-i18next";
 
 //import trainingData from "../../components/Training.json";
 //const placeholder = require("../assets/images/Tifa-loading-Screen.jpg"); //use this as placeholder for all images
@@ -17,6 +19,7 @@ import { ThemedText } from "@/components/ThemedText";
 //});
 
 function Index() {
+  const { t } = useTranslation();
   const { Index } = IndexData;
   // State to manage active selection
   const [activeIndex, setActiveIndex] = useState(0);
@@ -43,6 +46,11 @@ function Index() {
               routeName="index"
             />
           </View>
+          <ThemedText
+            style={{ padding: 80, color: "#111", backgroundColor: "#fff" }}
+          >
+            {t("BeforeAuth:firstRandom", "Hy How are you today")}
+          </ThemedText>
           <HomeContent activeIndex={activeIndex} routeName="index" />
         </ScrollView>
       </SafeAreaView>
