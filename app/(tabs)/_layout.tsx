@@ -1,21 +1,37 @@
 // AppLayout.tsx
 import { Redirect, Tabs } from "expo-router"
-import React, { useEffect } from 'react';
-import { setStatusBarBackgroundColor, setStatusBarStyle, StatusBar } from 'expo-status-bar';
+import React, { useEffect, useState } from 'react';
+import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle, StatusBar } from 'expo-status-bar';
 import { useSession } from '../../ctx';
 import LoadingScreen from '@/components/LoadingScreen';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import {View} from 'react-native';
+import { useSegments } from "expo-router";
 
 
 export default function AppLayout() {
   const { session, isLoading } = useSession();
+  const [hideallBars, setHideallBars] = useState(false);
+  const segments = useSegments();
 
   // Set status bar style on mount
   useEffect(() => {
     setStatusBarStyle('light');
     setStatusBarBackgroundColor("#1E2021");
   }, []);
+
+  
+  useEffect(() => {
+    // Unmount component when `segments` changes
+    if (
+      JSON.stringify(segments) == JSON.stringify(["(tabs)", "pingpong", "[id]"])
+    ) {
+      setHideallBars(true);
+    }
+    else {
+      setHideallBars(false);
+    }
+  }, [segments]);
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -32,6 +48,7 @@ export default function AppLayout() {
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: 'rgba(47, 120, 245, 1)',
+
           tabBarStyle: {
             //borderTopLeftRadius: 50,
             //borderTopRightRadius: 50,
@@ -41,6 +58,7 @@ export default function AppLayout() {
             paddingBottom: 13,
             paddingHorizontal: 15,
             height: 70,
+            display: hideallBars === true ? "none" : "flex"
           },
           headerShown: false,
         }}

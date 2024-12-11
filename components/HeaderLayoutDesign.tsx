@@ -29,7 +29,7 @@ const HeaderLayoutDesign = ({ routeName, routeTitle, setMenuitem, menuitem }: Ma
         <View style={styles.headerFlex}>
           {routeName !== "profile" && <ProfileIcon />}
           {routeName === "profile" && <BackPress onBackPress={onBackPress} />}
-          <View>
+          <View style={{width: "72%", alignItems: "center"}}>
             <Text style={TextheaderStyles.headerText}>{routeTitle}</Text>
             <Text style={TextheaderStyles.typographyHeadertext}>T</Text>
           </View>

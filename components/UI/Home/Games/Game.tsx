@@ -44,7 +44,6 @@ const normalizeVector = (vector: any) => {
 export default function Game() {
   
   const segments = useSegments();
-  console.log(segments);
   const { height, width } = useWindowDimensions();
   const playerDimensions = {
     w: width / 2,

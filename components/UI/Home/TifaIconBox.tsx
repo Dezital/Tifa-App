@@ -10,8 +10,6 @@ interface TifaIconBoxProps {
     subtitle: string;
 }
 
-
-
 const TifaIconBox = ({iconurl, title, subtitle} : TifaIconBoxProps) => {
   const calculatedWidth = screenWidth * 0.265;
   return (
