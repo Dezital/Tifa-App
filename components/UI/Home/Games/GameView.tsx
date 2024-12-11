@@ -35,17 +35,11 @@ const CardLayoutGame = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   viewContainer: {
     backgroundColor: "rgba(30, 32, 33, 1)",
     borderRadius: 20,
     marginTop: -100,
-    marginBottom: -35,
+    marginBottom: 15,
     width: "100%"
   },
   wrapper: {

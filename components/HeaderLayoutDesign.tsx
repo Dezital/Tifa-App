@@ -71,16 +71,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     borderBottomLeftRadius: 50,
     height: 200,
-    //paddingTop: 15,
-    paddingLeft: 20,
-    paddingRight: 20,
   },
   headerFlex: {
-    flex: 1,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    //paddingTop: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });
 

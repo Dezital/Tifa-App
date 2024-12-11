@@ -39,7 +39,6 @@ const signup = () => {
     setIsChecked(!isChecked); // Toggle the checked state
   };
   const signInGoogle = async () => {
-
     try {
       await GoogleSignin.hasPlayServices({
         showPlayServicesUpdateDialog: true,
@@ -54,7 +53,6 @@ const signup = () => {
         signIn();
         router.replace("/");
       }
-
     } catch (error) {
       console.log("error===", error);
       Alert.alert("Error", "An unexpected error occurred. Please try again.");

@@ -13,7 +13,7 @@ const Notifications = () => {
       <View style={notificationsStyles.notificationbox}>
         <NotificationsBox
           icon={notIcon}
-          notificationText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          notificationText="Lorem ipsum dolor sit amet, con adipiscing elit."
           time="11.00 AM"
         />
         <Divider />
@@ -46,7 +46,7 @@ const Notifications = () => {
         <Divider />
         <NotificationsBox
           icon={CreditCardIcon}
-          notificationText="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          notificationText="Lorem ipsum dolor sit amet, con adipiscing elit."
           time="11.00 AM"
         />
         <Divider transparent={true} />
@@ -145,6 +145,8 @@ const notificationsStyles = StyleSheet.create({
   notificationBoxContent: {
     flexDirection: "column",
     justifyContent: "space-between",
+    width: "80%",
   },
 });
 export default Notifications;
+

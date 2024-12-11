@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { HeaderLayoutDesign } from "../../components/HeaderLayoutDesign";
@@ -9,6 +9,7 @@ import ModalComponent from "@/components/UI/Modal";
 import { ThemedText } from "@/components/ThemedText";
 import "../../utilis/i18n";
 import { useTranslation } from "react-i18next";
+import { setStatusBarBackgroundColor } from "expo-status-bar";
 
 //import trainingData from "../../components/Training.json";
 //const placeholder = require("../assets/images/Tifa-loading-Screen.jpg"); //use this as placeholder for all images
@@ -23,6 +24,10 @@ function Index() {
   const { Index } = IndexData;
   // State to manage active selection
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    setStatusBarBackgroundColor("rgba(0, 54, 171, 1)");
+  })
   return (
     <SafeAreaProvider style={{ backgroundColor: "rgba(0, 54, 171, 1)" }}>
       <SafeAreaView style={styles.container}>

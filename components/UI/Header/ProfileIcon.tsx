@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
 import React from 'react'
 const placeholderImage = require("../../../assets/images/profile-placeHolder.png");
 import { useRouter } from 'expo-router';
@@ -14,9 +14,9 @@ const ProfileIcon = ({widthbigger}:{widthbigger?: boolean}) => {
     }
   }
     return (
-      <TouchableOpacity onPress={renderProfile}>
+      <Pressable onPress={renderProfile} style={{ width: widthbigger ? widthrange * 1.1 : widthrange, height: widthbigger ? heightrange : heightrange * 1.4}}>
         <Image source={placeholderImage} style={[profileIconStyles.profileIcon, {width:widthrange, height:heightrange}]} />
-      </TouchableOpacity>
+      </Pressable>
     );
   };
 

@@ -40,13 +40,17 @@ const Stats = () => {
         <CardLayout routeName='index' />
       <ThemedText style={styles.tifatext}>TIFA Sports Institute is all about the individual talent development of every player as we focus on functional technique. Apart from the technical aspects we also value motivation, self-believe, and mentality. All these aspects are incorporated into our training philosophy and conversations we have with our players. All this makes us prides the best talent developing institute of The Netherlands.</ThemedText>
       <IronStrikeHeading variant='default'  title="Tifa Stats" />
+      <View style={{marginTop: 5}}>
       <View style={styles.IconBoxContainer}>
       <TifaIconBox iconurl={noPlayers} title="750" subtitle="No. of Players" />
       <TifaIconBox iconurl={academy} title="55%" subtitle="% Academy"  />
       <TifaIconBox iconurl={turnedPro} title="04" subtitle="No. of players turned pro" />
+      </View>
+      <View style={styles.IconBoxContainer}>
       <TifaIconBox iconurl={turnedPro} title="09" subtitle="No. of Players in UEFA Youth Leage" />
       <TifaIconBox iconurl={internationalCup} title="194" subtitle="Winner International Youth Cup" />
       <TifaIconBox iconurl={mvp} title="19" subtitle="MVP International Youth Cup" />
+      </View>
       </View>
     </View>
   );
@@ -80,11 +84,13 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         fontSize: 13,
     },
-    IconBoxContainer:{
-      flexDirection: 'row',
-      marginTop: 20,
-      gap: 18,
-      flexWrap: 'wrap'
+    IconBoxContainer: {
+      flexDirection: 'row',           // Keeps items in a row
+      justifyContent: 'space-evenly', // Evenly spaces the items
+      marginTop: 15,
+      gap: 15,                        // Adds space between the items
+      flexWrap: 'nowrap',             // Prevents wrapping; ensures 3 boxes per row
+      width: '100%',                  // Ensures the container takes full width
     },
     sliderContainer: {
       flex: 1,

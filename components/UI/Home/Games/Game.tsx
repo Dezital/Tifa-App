@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { setStatusBarHidden } from "expo-status-bar";
 import { useEffect } from "react";
+import { useSegments } from "expo-router";
 import {
   Button,
   StyleSheet,
@@ -22,15 +23,16 @@ import {
   GestureHandlerRootView,
   PanGestureHandler,
 } from "react-native-gesture-handler";
+import { AuthButton, ReuseButton } from "../../Button";
 
 const FPS = 60;
 const DELTA = 1000 / FPS;
 const SPEED = 10;
 const BALL_WIDTH = 25;
 
-const islandDimensions = { x: 150, y: 11, w: 127, h: 37 };
+const islandDimensions = { x: 120, y: 11, w: 127, h: 37 };
 
-const normalizeVector = (vector : any) => {
+const normalizeVector = (vector: any) => {
   const magnitude = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
 
   return {
@@ -40,7 +42,9 @@ const normalizeVector = (vector : any) => {
 };
 
 export default function Game() {
-
+  
+  const segments = useSegments();
+  console.log(segments);
   const { height, width } = useWindowDimensions();
   const playerDimensions = {
     w: width / 2,
@@ -60,14 +64,22 @@ export default function Game() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!gameOver) {
-        setStatusBarHidden(true);
         update();
       }
     }, DELTA);
-    setStatusBarHidden(false);
     return () => clearInterval(interval);
   }, [gameOver]);
 
+  useEffect(() => {
+    // Unmount component when `segments` changes
+    if (
+      JSON.stringify(segments) == JSON.stringify(["(tabs)", "pingpong", "[id]"])
+    ) {
+      setStatusBarHidden(true);
+    } else {
+      setStatusBarHidden(false);
+    }
+  }, [segments]);
 
   const update = () => {
     let nextPos = getNextPos(direction.value);
@@ -133,7 +145,7 @@ export default function Game() {
     });
   };
 
-  const getNextPos = (direction : any) => {
+  const getNextPos = (direction: any) => {
     return {
       x: targetPositionX.value + direction.x * SPEED,
       y: targetPositionY.value + direction.y * SPEED,
@@ -141,6 +153,7 @@ export default function Game() {
   };
 
   const restartGame = () => {
+    console.log("restart");
     targetPositionX.value = width / 2;
     targetPositionY.value = height / 2;
     setScore(0);
@@ -186,10 +199,23 @@ export default function Game() {
     <View style={styles.container}>
       <Text style={styles.score}>{score}</Text>
       {gameOver && (
-        <View style={styles.gameOverContainer}>
-          <Text style={styles.gameOver}>Game over</Text>
-          <Button title="Restart" onPress={restartGame} />
-        </View>
+        <>
+          <View style={styles.gameOverContainer}>
+            <Text style={styles.gameOver}>Game over</Text>
+            <AuthButton
+                formatBlue="blue"
+                asyncFunctionPass={restartGame}
+                Title="RESTRART"
+              />
+            <View style={{ marginTop: 10 }}>
+            <ReuseButton
+              formatBlue="transparent"
+              routeLink="/(tabs)"
+              Title="GO BACK"
+            />
+            </View>
+          </View>
+        </>
       )}
 
       {!gameOver && <Animated.View style={[styles.ball, ballAnimatedStyles]} />}
@@ -205,7 +231,7 @@ export default function Game() {
           width: islandDimensions.w,
           height: islandDimensions.h,
           borderRadius: 20,
-          backgroundColor: "1E2021",
+          backgroundColor: "black",
         }}
       />
 
@@ -218,7 +244,7 @@ export default function Game() {
             width: playerDimensions.w,
             height: playerDimensions.h,
             borderRadius: 20,
-            backgroundColor: "1E2021",
+            backgroundColor: "black",
           },
           playerAnimatedStyles,
         ]}
@@ -246,7 +272,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   ball: {
-    backgroundColor: "black",
+    backgroundColor: "rgba(0, 54, 171, 1)",
     width: BALL_WIDTH,
     aspectRatio: 1,
     borderRadius: 25,
@@ -256,16 +282,20 @@ const styles = StyleSheet.create({
     fontSize: 150,
     fontWeight: "500",
     position: "absolute",
-    top: 150,
+    top: 100,
     color: "lightgray",
   },
   gameOverContainer: {
     position: "absolute",
-    top: 350,
+    top: 280,
+    padding: 20,
+    borderRadius: 20,
+    backgroundColor: "rgba(27, 27, 27, 0.73)",
+    zIndex: 1,
   },
   gameOver: {
     fontSize: 50,
     fontWeight: "500",
-    color: "red",
+    color: "#fff",
   },
 });

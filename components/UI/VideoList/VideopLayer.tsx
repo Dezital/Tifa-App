@@ -1,8 +1,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, ActivityIndicator, Dimensions } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import {useSegments} from 'expo-router'
+import { setStatusBarHidden } from 'expo-status-bar';
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -10,6 +12,9 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
+
+
+  const segments = useSegments();
   const [isLoading, setIsLoading] = useState(true); // Loader state
   const videoRef = useRef<Video>(null);
 
@@ -20,6 +25,7 @@ const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
     };
 
     lockOrientation();
+    setStatusBarHidden(true);
 
     // Reset orientation to portrait on unmount
     return () => {
@@ -27,14 +33,16 @@ const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    // Unmount component when `segments` changes
+    if (JSON.stringify(segments) !== JSON.stringify(['(tabs)', 'traininglist', '[id]'])) {
+      setStatusBarHidden(false);
+      onBackPress(); // Trigger the callback to handle unmount
+    }
+  }, [segments]);
+
   return (
     <View style={styles.container}>
-      {isLoading && (
-        <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
-        <ActivityIndicator size="large" color="#fff" style={styles.loader} />
-        </View>
-      )}
-
       <Video
         ref={videoRef}
         source={{ uri: videoUrl }}
@@ -55,15 +63,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 10,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    paddingTop: 20
   },
   video: {
     width: '100%',
-    height: Dimensions.get('window').height, // Full height for landscape
+    height: 300, 
     borderRadius: 10,
+    alignContent: 'flex-start',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   loader: {
     position: 'absolute',
-    zIndex: 1, // Keep loader above the video
+    zIndex: 1, 
   },
 });
 
