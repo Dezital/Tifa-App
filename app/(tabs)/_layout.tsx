@@ -1,7 +1,7 @@
 // AppLayout.tsx
 import { Redirect, Tabs } from "expo-router"
 import React, { useEffect } from 'react';
-import { setStatusBarStyle, StatusBar } from 'expo-status-bar';
+import { setStatusBarBackgroundColor, setStatusBarStyle, StatusBar } from 'expo-status-bar';
 import { useSession } from '../../ctx';
 import LoadingScreen from '@/components/LoadingScreen';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
@@ -14,6 +14,7 @@ export default function AppLayout() {
   // Set status bar style on mount
   useEffect(() => {
     setStatusBarStyle('light');
+    setStatusBarBackgroundColor("#1E2021");
   }, []);
 
   if (isLoading) {
@@ -116,7 +117,16 @@ export default function AppLayout() {
             ),
           }}
         />  
-      </Tabs>
+        <Tabs.Screen
+          name="pingpong/[id]"
+          options={{
+            tabBarItemStyle: { display: 'none' },
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon name={focused ? 'newspaper' : 'newspaper'} color={color} focused={focused} />
+            ),
+          }}
+        />  
+      </Tabs> 
       </View>
     </>
   );

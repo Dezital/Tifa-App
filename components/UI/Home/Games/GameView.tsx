@@ -2,21 +2,27 @@ import { View, Image, Text, StyleSheet, TouchableOpacity  } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 const pingpongImage = require("../../../../assets/images/pingpong.png")
-
+import { useRouter } from 'expo-router'
 const GameView = () => {
+
   return (
     <CardLayoutGame />
   )
 }
 
 const CardLayoutGame = () => {
+  const router = useRouter()
+  const onPlay = () => {
+    router.push({ pathname: '/(tabs)/pingpong/[id]' , params: { id: 1} })
+  }
+
   return (
     <View style={styles.viewContainer}>
       <View style={styles.wrapper}>
         <Image source={pingpongImage} style={styles.image} />
         <View style={styles.innerwrapper}>
         <Text style={styles.textstyle}>PING PONG</Text>
-        <TouchableOpacity style={styles.flexdis}>
+        <TouchableOpacity style={styles.flexdis} onPress={onPlay}>
             <View style={styles.playbutton}>
             <Ionicons name="play" size={18} color="rgba(255, 255, 255, 1)" />
             <Text style={styles.playtext}>PLAY</Text>
@@ -29,6 +35,12 @@ const CardLayoutGame = () => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   viewContainer: {
     backgroundColor: "rgba(30, 32, 33, 1)",
     borderRadius: 20,

@@ -46,11 +46,13 @@ function Index() {
               routeName="index"
             />
           </View>
+          {/*
           <ThemedText
             style={{ padding: 80, color: "#111", backgroundColor: "#fff" }}
           >
             {t("BeforeAuth:firstRandom", "Hy How are you today")}
           </ThemedText>
+          */}
           <HomeContent activeIndex={activeIndex} routeName="index" />
         </ScrollView>
       </SafeAreaView>
