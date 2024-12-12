@@ -29,7 +29,7 @@ const HeaderLayoutDesign = ({ routeName, routeTitle, setMenuitem, menuitem }: Ma
         <View style={styles.headerFlex}>
           {routeName !== "profile" && <ProfileIcon />}
           {routeName === "profile" && <BackPress onBackPress={onBackPress} />}
-          <View style={{width: "72%", alignItems: "center"}}>
+          <View style={{flexGrow: 1}} >
             <Text style={TextheaderStyles.headerText}>{routeTitle}</Text>
             <Text style={TextheaderStyles.typographyHeadertext}>T</Text>
           </View>
@@ -67,17 +67,17 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: "rgba(0, 54, 171, 1)",
     width: "100%", // Ensures it takes the full width
+    justifyContent: "space-between",
     alignItems: "center", // Center the text horizontally
     borderBottomRightRadius: 50,
     borderBottomLeftRadius: 50,
     height: 200,
   },
   headerFlex: {
-    width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingHorizontal: 20,
+
   },
 });
 

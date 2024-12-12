@@ -2,11 +2,16 @@ import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { ReuseButton } from '@/components/UI/Button';
 import { ThemedText } from '@/components/ThemedText';
+import { useEffect } from 'react';
+import { setStatusBarHidden } from 'expo-status-bar';
 
 const image = require('../assets/images/get-Started-Screen.png');
 const logo = require('../assets/images/tifa-logo-blue.png');
 
 export default function SignIn() {
+  useEffect(() => {
+    setStatusBarHidden(true);
+  },[])
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={['left', 'right']}>

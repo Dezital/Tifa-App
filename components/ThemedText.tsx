@@ -1,5 +1,6 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
-
+import "../utilis/i18n";
+import { useTranslation } from "react-i18next";
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
@@ -16,6 +17,7 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const { t } = useTranslation();
 
   return (
     <Text

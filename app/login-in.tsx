@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Image,
@@ -17,6 +17,7 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { AuthButton, AuthProviderButton } from "@/components/UI/Button";
 import { Inputfields } from "@/components/UI/Inputfields";
 import { ThemedText } from "@/components/ThemedText";
+import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle } from "expo-status-bar";
 const image = require("../assets/images/tifa_logo.png");
 
 const LoginScreen = () => {
@@ -68,24 +69,30 @@ const LoginScreen = () => {
         showPlayServicesUpdateDialog: true,
       });
       const signInResult = await GoogleSignin.signIn();
-      console.log("signInResult===", signInResult);
       let idToken = signInResult.data?.idToken;
-      console.log("idToken===", idToken);
       if (idToken) {
-        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-        // Sign-in the user with the credential
+        // Create a Google credential with the token
+       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      // Sign-in the user with the credential
         auth().signInWithCredential(googleCredential);
         signIn();
         router.replace("/");
       }
     } catch (error) {
       console.log("error===", error);
+      Alert.alert("Error", "An unexpected error occurred. Please try again.");
     }
-  };
+  };  
 
   const handleForgotPassword = () => {
     router.push("/ForgotPasswordScreen"); // Navigate to the Forgot Password Screen
   };
+
+  useEffect(() => {
+    setStatusBarHidden(false)
+    setStatusBarBackgroundColor("rgba(21, 23, 24, 1)")
+    setStatusBarStyle("light")
+  }, [])
 
   return (
     <SafeAreaProvider>

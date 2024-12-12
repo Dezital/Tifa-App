@@ -7,8 +7,6 @@ import HeaderOverlayBox from "@/components/UI/Training/HeaderOverlayBox";
 import HomeContent from "@/components/UI/Home/HomeContent";
 import ModalComponent from "@/components/UI/Modal";
 import { ThemedText } from "@/components/ThemedText";
-import "../../utilis/i18n";
-import { useTranslation } from "react-i18next";
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 
 //import trainingData from "../../components/Training.json";
@@ -20,14 +18,13 @@ import { setStatusBarBackgroundColor } from "expo-status-bar";
 //});
 
 function Index() {
-  const { t } = useTranslation();
   const { Index } = IndexData;
   // State to manage active selection
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     setStatusBarBackgroundColor("rgba(0, 54, 171, 1)");
-  })
+  }, []);
   return (
     <SafeAreaProvider style={{ backgroundColor: "rgba(0, 54, 171, 1)" }}>
       <SafeAreaView style={styles.container}>
@@ -35,10 +32,7 @@ function Index() {
           style={{ width: "100%" }}
           contentContainerStyle={styles.scrollContainer}
         >
-          <ModalComponent
-            openPopup={true} // Automatically opens the modal
-            closePopup={() => console.log("Modal closed")}
-          >
+          <ModalComponent openPopup={true} closePopup={() => console.log("Modal closed")}>
             <ThemedText type="default">Custom content inside modal</ThemedText>
           </ModalComponent>
 

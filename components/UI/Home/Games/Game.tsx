@@ -1,3 +1,4 @@
+//Things we can do to improve this game is as the score increases, the speed of the ball increases, the size of ball decreases,  the controller size decreases and target size increases 
 import React, { useState } from "react";
 import { setStatusBarHidden } from "expo-status-bar";
 import { useEffect } from "react";
@@ -27,10 +28,10 @@ import { AuthButton, ReuseButton } from "../../Button";
 
 const FPS = 60;
 const DELTA = 1000 / FPS;
-const SPEED = 10;
+let SPEED = 15; // adjust this value to control the speed increase
 const BALL_WIDTH = 25;
 
-const islandDimensions = { x: 120, y: 11, w: 127, h: 37 };
+const islandDimensions = { x: 127, y: 11, w: 127, h: 37 };
 
 const normalizeVector = (vector: any) => {
   const magnitude = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
@@ -42,16 +43,15 @@ const normalizeVector = (vector: any) => {
 };
 
 export default function Game() {
-  
+  const [score, setScore] = useState(0);
+  SPEED = 10 + (score / 5);
+  const [gameOver, setGameOver] = useState(true);
   const segments = useSegments();
   const { height, width } = useWindowDimensions();
   const playerDimensions = {
     w: width / 2,
     h: 37,
   };
-
-  const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(true);
 
   const targetPositionX = useSharedValue(width / 2);
   const targetPositionY = useSharedValue(height / 2);
@@ -298,3 +298,91 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 });
+
+
+/*
+const update = () => {
+  let nextPos = getNextPos(direction.value);
+  let newDirection = direction.value;
+
+  // Adjust speed based on score
+  const adjustedSpeed = getSpeedBasedOnScore(score);
+
+  // Wall Hit detection
+  if (nextPos.y > height - BALL_WIDTH) {
+    setGameOver(true);
+  }
+  if (nextPos.y < 0) {
+    newDirection = { x: direction.value.x, y: -direction.value.y };
+  }
+
+  if (nextPos.x < 0 || nextPos.x > width - BALL_WIDTH) {
+    newDirection = { x: -direction.value.x, y: direction.value.y };
+  }
+
+  // Island Hit detection
+  if (
+    nextPos.x < islandDimensions.x + islandDimensions.w &&
+    nextPos.x + BALL_WIDTH > islandDimensions.x &&
+    nextPos.y < islandDimensions.y + islandDimensions.h &&
+    BALL_WIDTH + nextPos.y > islandDimensions.y
+  ) {
+    if (
+      targetPositionX.value < islandDimensions.x ||
+      targetPositionX.value > islandDimensions.x + islandDimensions.w
+    ) {
+      newDirection = { x: -direction.value.x, y: direction.value.y };
+    } else {
+      newDirection = { x: direction.value.x, y: -direction.value.y };
+    }
+    setScore((s) => s + 1);
+  }
+
+  // Player Hit detection
+  if (
+    nextPos.x < playerPos.value.x + playerDimensions.w &&
+    nextPos.x + BALL_WIDTH > playerPos.value.x &&
+    nextPos.y < playerPos.value.y + playerDimensions.h &&
+    BALL_WIDTH + nextPos.y > playerPos.value.y
+  ) {
+    if (
+      targetPositionX.value < playerPos.value.x ||
+      targetPositionX.value > playerPos.value.x + playerDimensions.w
+    ) {
+      newDirection = { x: -direction.value.x, y: direction.value.y };
+    } else {
+      newDirection = { x: direction.value.x, y: -direction.value.y };
+    }
+  }
+
+  direction.value = newDirection;
+  nextPos = getNextPos(newDirection, adjustedSpeed);
+
+  targetPositionX.value = withTiming(nextPos.x, {
+    duration: DELTA,
+    easing: Easing.linear,
+  });
+  targetPositionY.value = withTiming(nextPos.y, {
+    duration: DELTA,
+    easing: Easing.linear,
+  });
+};
+
+// Function to calculate speed based on score
+const getSpeedBasedOnScore = (score) => {
+  // Starting speed and increment
+  const baseSpeed = 10;
+  const speedIncrement = 0.5; // Increase speed by 0.5 for each point scored
+
+  return baseSpeed + score * speedIncrement;
+};
+
+// Update getNextPos to accept the speed parameter
+const getNextPos = (direction, speed) => {
+  return {
+    x: targetPositionX.value + direction.x * speed,
+    y: targetPositionY.value + direction.y * speed,
+  };
+};
+
+*/

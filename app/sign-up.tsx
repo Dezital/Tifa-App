@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Image,
@@ -23,6 +23,7 @@ import { AuthProviderButton, AuthButton } from "@/components/UI/Button";
 import CountryDropDown from "@/components/UI/CountryDropDown";
 import CheckBoxComponent from "@/components/UI/CheckBoxComponent";
 import DateOfBirthInput from "@/components/UI/DateOfBirthInput";
+import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle } from "expo-status-bar";
 
 const signup = () => {
   const { signIn } = useSession();
@@ -84,6 +85,12 @@ const signup = () => {
       alert(`Sign-Up Failed: ${error.message}`);
     }
   };
+  
+  useEffect(() => {
+      setStatusBarHidden(false)
+      setStatusBarBackgroundColor("rgba(21, 23, 24, 1)")
+      setStatusBarStyle("light")
+    }, [])
 
   return (
     <SafeAreaProvider>

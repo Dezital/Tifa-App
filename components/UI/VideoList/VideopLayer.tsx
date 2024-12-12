@@ -30,13 +30,14 @@ const VideoPlayer = ({ videoUrl, onBackPress }: VideoPlayerProps) => {
     // Reset orientation to portrait on unmount
     return () => {
       ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+      setStatusBarHidden(false);
     };
   }, []);
 
   useEffect(() => {
     // Unmount component when `segments` changes
     if (JSON.stringify(segments) !== JSON.stringify(['(tabs)', 'traininglist', '[id]'])) {
-      setStatusBarHidden(false);
+      setStatusBarHidden(true);
       onBackPress(); // Trigger the callback to handle unmount
     }
   }, [segments]);
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     alignContent: 'flex-start',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    zIndex: 2,
   },
   loader: {
     position: 'absolute',

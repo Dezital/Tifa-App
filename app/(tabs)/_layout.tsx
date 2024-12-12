@@ -1,7 +1,7 @@
 // AppLayout.tsx
 import { Redirect, Tabs } from "expo-router"
 import React, { useEffect, useState } from 'react';
-import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle, StatusBar } from 'expo-status-bar';
+import { setStatusBarBackgroundColor, setStatusBarStyle, StatusBar } from 'expo-status-bar';
 import { useSession } from '../../ctx';
 import LoadingScreen from '@/components/LoadingScreen';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
@@ -17,7 +17,7 @@ export default function AppLayout() {
   // Set status bar style on mount
   useEffect(() => {
     setStatusBarStyle('light');
-    setStatusBarBackgroundColor("#1E2021");
+    setStatusBarBackgroundColor("rgba(0, 54, 171, 1)");
   }, []);
 
   

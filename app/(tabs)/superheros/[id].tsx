@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   containedView: {
     alignItems: "center",
     justifyContent: "space-between",
-    paddingTop: 45,
+    paddingTop: 17,
     paddingLeft: 25,
     paddingRight: 25,
   },
