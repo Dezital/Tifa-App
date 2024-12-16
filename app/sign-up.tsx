@@ -17,13 +17,14 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin";
 const image = require("../assets/images/tifa_logo.png");
 GoogleSignin.configure({
   webClientId:
-    "1028669389718-55gk78eo8r2ctf0uc7481aunbhup90hu.apps.googleusercontent.com",
+    "444670043049-i088o5egakb53fifquba5dtkq1c8coha.apps.googleusercontent.com",   //redooo env this later
 });
 import { AuthProviderButton, AuthButton } from "@/components/UI/Button";
 import CountryDropDown from "@/components/UI/CountryDropDown";
 import CheckBoxComponent from "@/components/UI/CheckBoxComponent";
 import DateOfBirthInput from "@/components/UI/DateOfBirthInput";
 import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle } from "expo-status-bar";
+//npx expo install @invertase/react-native-apple-authentication expo-build-properties
 
 const signup = () => {
   const { signIn } = useSession();
@@ -47,6 +48,7 @@ const signup = () => {
       const signInResult = await GoogleSignin.signIn();
       let idToken = signInResult.data?.idToken;
       if (idToken) {
+        console.log("idToken", idToken);
         // Create a Google credential with the token
        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
       // Sign-in the user with the credential

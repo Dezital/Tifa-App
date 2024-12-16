@@ -19,6 +19,26 @@ import { Inputfields } from "@/components/UI/Inputfields";
 import { ThemedText } from "@/components/ThemedText";
 import { setStatusBarBackgroundColor, setStatusBarHidden, setStatusBarStyle } from "expo-status-bar";
 const image = require("../assets/images/tifa_logo.png");
+GoogleSignin.configure({
+  webClientId:
+    "444670043049-i088o5egakb53fifquba5dtkq1c8coha.apps.googleusercontent.com",
+});
+
+/*
+keystore from folder (old)
+  SHA1: 5E:8F:16:06:2E:A3:CD:2C:4A:0D:54:78:76:BA:A6:F3:8C:AB:F6:25
+  SHA256: FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+*/
+/*
+         SHA1: 5E:8F:16:06:2E:A3:CD:2C:4A:0D:54:78:76:BA:A6:F3:8C:AB:F6:25
+         SHA256: FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+*/
+
+/*
+Eas Store
+SHA1 Fingerprint    8B:4E:54:E4:9F:64:3A:36:78:9F:03:49:F4:D7:81:B1:48:42:45:45
+SHA256 Fingerprint  46:0E:3D:D9:D8:18:68:C3:B0:AD:C9:68:C8:CD:E6:CC:65:07:71:60:A1:DF:56:09:7D:D5:98:BF:9B:83:1B:CA
+*/
 
 const LoginScreen = () => {
   const { signIn } = useSession();
@@ -38,12 +58,14 @@ const LoginScreen = () => {
         email,
         password
       );
+      
       if (userCredential) {
+        console.log("userCredential", userCredential);
         signIn();
         router.replace("/");
       }
     } catch (e: any) {
-      console.log("e===", e.message);
+      console.log("e===+", e);
       let errorMessage = `Sign-In Failed: ${e.message}`;
       if (e.code === "auth/invalid-email") {
         errorMessage = "Invalid email. Please try again.";
@@ -79,7 +101,7 @@ const LoginScreen = () => {
         router.replace("/");
       }
     } catch (error) {
-      console.log("error===", error);
+      console.log("error===+", error);
       Alert.alert("Error", "An unexpected error occurred. Please try again.");
     }
   };  

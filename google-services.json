@@ -1,50 +1,49 @@
 {
   "project_info": {
-    "project_number": "1028669389718",
-    "project_id": "tifa-sports",
-    "storage_bucket": "tifa-sports.appspot.com"
+    "project_number": "444670043049",
+    "project_id": "tifasports-a1716",
+    "storage_bucket": "tifasports-a1716.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1028669389718:android:ea2f5955e8c0dc62337bb7",
+        "mobilesdk_app_id": "1:444670043049:android:689b579a18525eea2f1ab8",
         "android_client_info": {
           "package_name": "com.adiljaved.tifasports"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1028669389718-a932o8s9hf3haplo6esph7nhst0s3glg.apps.googleusercontent.com",
+          "client_id": "444670043049-0v1obfvt9k651qj4fgn4ofe5bqtk3v78.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.adiljaved.tifasports",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+            "certificate_hash": "8b4e54e49f643a36789f0349f4d781b148424545"
           }
         },
         {
-          "client_id": "1028669389718-f3b7ofq6lara5e1ir6hj58r9rnt8e7nq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.adiljaved.tifasports",
-            "certificate_hash": "4c92b3c69488615ea9fc88c58f48db0681f43d7e"
-          }
-        },
-        {
-          "client_id": "1028669389718-55gk78eo8r2ctf0uc7481aunbhup90hu.apps.googleusercontent.com",
+          "client_id": "444670043049-i088o5egakb53fifquba5dtkq1c8coha.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDjAsA2jxpE3ibF7_NNy3Ul6sknH8zzRhM"
+          "current_key": "AIzaSyCPwdAp___zME-U7kInZ0tV9sBTMn6W_8I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1028669389718-55gk78eo8r2ctf0uc7481aunbhup90hu.apps.googleusercontent.com",
+              "client_id": "444670043049-i088o5egakb53fifquba5dtkq1c8coha.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "444670043049-vpnda0hct0glj3em911lkh9b7tv6oo80.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.adiljaved.tifasports"
+              }
             }
           ]
         }
